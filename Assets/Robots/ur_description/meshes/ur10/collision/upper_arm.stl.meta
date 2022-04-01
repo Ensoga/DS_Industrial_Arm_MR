@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 9e656bc1954cafe4f9854738ab063dbf
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: b85a6f154cd43914c9763fc9c4512b07, type: 3}
+  ScaleFactor: 1
+  MergeVertices: 0
+  MergeAngle: 80
+  MergeTolerance: 0.000001
