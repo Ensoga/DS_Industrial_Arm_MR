@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-[ExecuteAlways]
+    [ExecuteAlways]
 public class UrdfRobot : MonoBehaviour
 {
     public bool BaseIsKinematic = false;
@@ -22,6 +22,10 @@ public class UrdfRobot : MonoBehaviour
     public List<Urdf.Joint> MovableJoints;
     public List<float> Values;
 
+    void Start()
+    {
+        
+    }
 
     void Update()
     {
@@ -57,7 +61,7 @@ public class UrdfRobot : MonoBehaviour
 
         for (int i = 0; i < MovableJoints.Count; ++i)
         {
-            // Updates the robot position with its connected gameobject in the setter, also clamps the value
+            // Updates the robot position with its connected gameobject in the setter, also clamps the value (??)
             MovableJoints[i].Value = Values[i];
 
             // If the value is clamped, then we update the old value
@@ -65,3 +69,5 @@ public class UrdfRobot : MonoBehaviour
         }
     }
 }
+
+
