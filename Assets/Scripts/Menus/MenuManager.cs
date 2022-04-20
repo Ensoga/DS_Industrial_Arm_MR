@@ -4,29 +4,48 @@ using UnityEngine;
 
 public class MenuManager : MonoBehaviour
 {
-    public int currentMenu = 0;
+    MenuList menulist;
+    //public List<MenuToggle> menuToggles;
+    MenuToggle[] menuToggles;
+
+    private void Awake()
+    {
+        menulist = GetComponent<MenuList>();
+        foreach(GameObject Menu in menulist.Menus)
+        {
+            menuToggles = Menu.GetComponents<MenuToggle>();
+        }
+    }
+
+    void ActivateMenu(List<GameObject> p_menuList)
+    {
+        for(int i = 0; i< p_menuList.Count; i++)
+        {
+            if(menuToggles[i].currentMenu)
+            {
+                p_menuList[i].SetActive(true);
+            }
+            else
+            {
+                p_menuList[i].SetActive(false);
+            }
+        }
+    }
+    
+
+    /*
+    public int currentMenu = -1;
 
     public void ManageMenu(List<GameObject> MenuList)
     {
-        if(currentMenu == 0)
+        if(currentMenu == -1)
         {
             DeactivateAll(MenuList);
         }
         else
         {
             ActivateCurrentMenu(currentMenu, MenuList);
-            // It deactivates all menus but the current one, which is activated
-        }
-        //foreach (GameObject Menu in MenuList)
-        {
-            //if(Menu.CurrentMenu)
-            {
-                //Menu.SetActive(true);
-            }
-            //else
-            {
-                //Menu.SetActive(false);
-            }
+            // It deactivates all menus but the current one, which is activated                                    
         }
     }
 
@@ -52,4 +71,5 @@ public class MenuManager : MonoBehaviour
             }
         }
     }
+    */
 }

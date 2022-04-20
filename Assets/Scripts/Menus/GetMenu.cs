@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GetMenu : MonoBehaviour
 {
+    /*
     MenuManager menuManager;
     //[SerializeField] GameObject MenuScripts;
 
@@ -40,40 +41,41 @@ public class GetMenu : MonoBehaviour
     #region Get Menu methods
 
     /* Menu coding:
-     * No Menu selected = 0
-     * Robot Menu = 1
-     * Tool Menu = 2
-    */
+     * No Menu selected = -1
+     * Robot Menu = 0
+     * Tool Menu = 1
+    
 
     void RobotMenuAct(int currentMenu)
     {
-        if(currentMenu == 1)
+        if(currentMenu != 0)
         {
             currentMenu = 0;
         }
         else
         {
-            currentMenu = 1;
+            currentMenu = -1;
         }
     }
 
     void ToolMenuAct(int currentMenu)
     {
-        if (currentMenu == 2)
+        if (currentMenu != 1)
         {
-            currentMenu = 0;
+            currentMenu = 1;
         }
         else
         {
-            currentMenu = 2;
+            currentMenu = -1;
         }
     }
 
     void AnyMenuDeact(int currentMenu)
     {
-        currentMenu = 0;
+        currentMenu = -1;
     }
 
     #endregion
 
+    */
 }

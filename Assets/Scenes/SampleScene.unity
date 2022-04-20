@@ -388,19 +388,7 @@ MonoBehaviour:
         m_CallState: 2
   _OnUnpress:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 372882225}
-        m_TargetAssemblyTypeName: GetMenu, Assembly-CSharp
-        m_MethodName: AnyMenuUnPressed
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!54 &101622146
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1775,7 +1763,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b453fe0fd2645a4ba93b9103f7f32dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentMenu: 0
+  currentMenu: -1
 --- !u!4 &372882224
 Transform:
   m_ObjectHideFlags: 0
@@ -4501,7 +4489,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1152311363
 Transform:
   m_ObjectHideFlags: 0
@@ -6016,19 +6004,7 @@ MonoBehaviour:
         m_CallState: 2
   _OnUnpress:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 372882225}
-        m_TargetAssemblyTypeName: GetMenu, Assembly-CSharp
-        m_MethodName: AnyMenuUnPressed
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!54 &1452640838
 Rigidbody:
   m_ObjectHideFlags: 0
