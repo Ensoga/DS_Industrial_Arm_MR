@@ -4,10 +4,20 @@ using UnityEngine;
 
 public class MenuToggle : MonoBehaviour
 {
+    MenuManager menuManager;
+    GameObject MenuScripts;
     [HideInInspector] public bool currentMenu = false;
+
+    private void Awake()
+    {
+        MenuScripts = GameObject.Find("Menu Scripts");
+        menuManager = MenuScripts.GetComponent<MenuManager>();
+    }
 
     public void ButtonPressed()
     {
-        currentMenu = !currentMenu;
+        currentMenu = true;
+        menuManager.ActivateMenu();
+        currentMenu = false;
     }
 }

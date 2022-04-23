@@ -4,30 +4,30 @@ using UnityEngine;
 
 public class MenuManager : MonoBehaviour
 {
-    MenuList menulist;
-    //public List<MenuToggle> menuToggles;
-    MenuToggle[] menuToggles;
+    public List<GameObject> MenuTogglesGameObjects;
+    List<GameObject> _Menus = new List<GameObject>();
+    List<MenuToggle> _menuToggles = new List<MenuToggle>();
 
     private void Awake()
     {
-        menulist = GetComponent<MenuList>();
-        foreach(GameObject Menu in menulist.Menus)
+        foreach(GameObject MenuTogglesGameObject in MenuTogglesGameObjects)
         {
-            menuToggles = Menu.GetComponents<MenuToggle>();
+            _menuToggles.Add(MenuTogglesGameObject.GetComponent<MenuToggle>());
+            _Menus.Add(MenuTogglesGameObject.transform.GetChild(0).gameObject);
         }
     }
 
-    void ActivateMenu(List<GameObject> p_menuList)
+    public void ActivateMenu()
     {
-        for(int i = 0; i< p_menuList.Count; i++)
+        for(int i = 0; i< _Menus.Count; i++)
         {
-            if(menuToggles[i].currentMenu)
+            if(_menuToggles[i].currentMenu)
             {
-                p_menuList[i].SetActive(true);
+                _Menus[i].SetActive(true);
             }
             else
             {
-                p_menuList[i].SetActive(false);
+                _Menus[i].SetActive(false);
             }
         }
     }
