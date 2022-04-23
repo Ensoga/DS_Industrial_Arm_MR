@@ -10,7 +10,7 @@ public class MenuToggle : MonoBehaviour
 
     private void Awake()
     {
-        MenuScripts = GameObject.Find("Menu Scripts");
+        MenuScripts = GameObject.Find("MenuScripts");
         menuManager = MenuScripts.GetComponent<MenuManager>();
     }
 
