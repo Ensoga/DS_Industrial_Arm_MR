@@ -17,4 +17,16 @@ public class StartRender : MonoBehaviour
     {
         
     }
+
+    private void OnEnable()
+    {
+        // Enable Depth Estimation.
+        VarjoMixedReality.EnableDepthEstimation();
+    }
+
+    private void OnDisable()
+    {
+        // Disable Depth Estimation.
+        VarjoMixedReality.DisableDepthEstimation();
+    }
 }
