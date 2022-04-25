@@ -15,6 +15,10 @@ public class Varjo_Marker_Manager : MonoBehaviour
         public bool dynamicTracking;
     }
 
+    public float OffSet_x;
+    public float OffSet_y;
+    public float OffSet_z;
+
     // An public array for all the tracked objects. 
     public TrackedObject[] trackedObjects = new TrackedObject[1];
 
@@ -60,7 +64,7 @@ public class Varjo_Marker_Manager : MonoBehaviour
                     {
                         // This simple marker manager controls only visibility and pose of the GameObjects.
                         trackedObjects[i].gameObject.SetActive(true);
-                        trackedObjects[i].gameObject.transform.localPosition = marker.pose.position;
+                        trackedObjects[i].gameObject.transform.localPosition = new Vector3(marker.pose.position.x - OffSet_x, marker.pose.position.y - OffSet_y, marker.pose.position.z - OffSet_z);
                         trackedObjects[i].gameObject.transform.localRotation = marker.pose.rotation;
 
                         // Set the marker tracking mode

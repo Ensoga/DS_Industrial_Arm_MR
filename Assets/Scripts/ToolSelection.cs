@@ -3,7 +3,9 @@ using UnityEngine;
 public class ToolSelection : MonoBehaviour
 {
     [SerializeField] public GameObject textvisible;
-    [SerializeField] public GameObject texthidden; 
+    [SerializeField] public GameObject texthidden;
+    [SerializeField] public GameObject toolImage;
+
 
     public int currentTool;
     public int index;
@@ -37,6 +39,18 @@ public class ToolSelection : MonoBehaviour
         for (int i = 0; i < transform.childCount; i++)
         {
             transform.GetChild(i).gameObject.SetActive(i == _index);
+            
+            switch (_index)
+            {
+                case 0:
+                    toolImage.transform.GetChild(1).gameObject.SetActive(false);
+                    toolImage.transform.GetChild(0).gameObject.SetActive(true);
+                    break;
+                case 1:
+                    toolImage.transform.GetChild(0).gameObject.SetActive(false);
+                    toolImage.transform.GetChild(1).gameObject.SetActive(true);
+                    break;
+            }
         }
     }
 
