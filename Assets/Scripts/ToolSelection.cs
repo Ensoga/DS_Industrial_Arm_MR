@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class ToolSelection : MonoBehaviour
 {
+    [SerializeField] public GameObject textvisible;
+    [SerializeField] public GameObject texthidden; 
+
     public int currentTool;
     public int index;
     public bool visible = true;
@@ -49,11 +52,16 @@ public class ToolSelection : MonoBehaviour
         {
             transform.GetChild(index).gameObject.SetActive(false);
             visible = false;
+            textvisible.SetActive(false);
+            texthidden.SetActive(true);
+
         }
         else
         {
             transform.GetChild(index).gameObject.SetActive(true);
             visible = true;
+            texthidden.SetActive(false);
+            textvisible.SetActive(true);
         }
         
     }
