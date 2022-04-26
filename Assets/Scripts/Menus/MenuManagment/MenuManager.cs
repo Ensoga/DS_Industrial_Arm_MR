@@ -17,7 +17,7 @@ public class MenuManager : MonoBehaviour
         }
     }
 
-    public void ActivateMenu()
+    public void ManageMenus()
     {
         for(int i = 0; i< _Menus.Count; i++)
         {
@@ -28,6 +28,17 @@ public class MenuManager : MonoBehaviour
             else
             {
                 _Menus[i].SetActive(false);
+            }
+        }
+    }
+
+    public void DeactivateOtherMenu()
+    {
+        foreach(MenuToggle menuToggle in _menuToggles)
+        {
+            if(menuToggle.currentMenu)
+            {
+                menuToggle.currentMenu = false;
             }
         }
     }

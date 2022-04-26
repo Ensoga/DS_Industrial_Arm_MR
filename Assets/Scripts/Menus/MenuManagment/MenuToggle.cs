@@ -16,8 +16,16 @@ public class MenuToggle : MonoBehaviour
 
     public void ButtonPressed()
     {
-        currentMenu = true;
-        menuManager.ActivateMenu();
-        currentMenu = false;
+        if(currentMenu)
+        {
+            currentMenu = false;
+            menuManager.ManageMenus();
+        }
+        else
+        {
+            menuManager.DeactivateOtherMenu();
+            currentMenu = true;
+            menuManager.ManageMenus();
+        }
     }
 }
