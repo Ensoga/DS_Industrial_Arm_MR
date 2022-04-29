@@ -5,7 +5,13 @@ using UnityEngine;
 public class Pickeble_p : MonoBehaviour
 {
     public GameObject Robot;
+    public GameObject Reference;
     private bool vacuum = false;
+
+    private void Start()
+    {
+
+    }
 
     public void VacuumControl()
     {

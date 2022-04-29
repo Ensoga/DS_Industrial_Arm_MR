@@ -13,6 +13,7 @@ namespace HiS.XR
         #region Variables
 
         public bool RobotIsOnline = false;
+        public List<float> JointsOffsets = new List<float>();
 
         private List<string> _propertyNames = new List<string>();
         private Dictionary<string, double> _THXanswer = new Dictionary<string, double>();
@@ -48,7 +49,7 @@ namespace HiS.XR
                 cloudHandlerHelper.GetThingProperties(out _THXanswer);
                 for(int i = 0; i < _propertyNames.Count; i++)
                 {
-                    urdfRobot.Values[i] = ((float)_THXanswer[_propertyNames[i]])/1000;
+                    urdfRobot.Values[i] = ((float)_THXanswer[_propertyNames[i]])/1000 + JointsOffsets[i];
                 }
             }
         }
@@ -58,6 +59,7 @@ namespace HiS.XR
             int index = 0;
             foreach (string property in _propertyNames)
             {
+                JointsOffsets.Add(0F);
                 cloudHandlerHelper.GetThingPropertyValue(property, out double value);
                 if(value > ((Mathf.PI)*2000))
                 {
@@ -78,6 +80,8 @@ namespace HiS.XR
                 }
                 index++;
             }
+            JointsOffsets[1] = Mathf.PI / 2;
+            JointsOffsets[3] = Mathf.PI / 2;
         }
     }
 }

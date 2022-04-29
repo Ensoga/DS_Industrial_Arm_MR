@@ -8380,6 +8380,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RobotIsOnline: 1
+  JointsOffsets: []
 --- !u!114 &1159559632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11539,6 +11540,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Robot: {fileID: 460781809}
+  Reference: {fileID: 0}
 --- !u!4 &1659766037
 Transform:
   m_ObjectHideFlags: 0
