@@ -23,7 +23,7 @@ public class Varjo_Marker_Manager : MonoBehaviour
 
 
 
-    // An public array for all the tracked objects. 
+    // A public array for all the tracked objects. 
     public TrackedObject[] trackedObjects = new TrackedObject[1];
 
     // A list for found markers.
