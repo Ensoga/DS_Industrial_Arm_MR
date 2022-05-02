@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9904ba1b1ccbb944b07293e121c5431, type: 3}
   m_Name: Varjo Settings
   m_EditorClassIdentifier: 
-  StereoRenderingMode: 1
+  StereoRenderingMode: 0
   SeparateCullPass: 0
   FoveatedRendering: 1
   ContextScalingFactor: 1
@@ -22,8 +22,8 @@ MonoBehaviour:
   FlipY: 0
   OcclusionMesh: 1
   SessionPriority: 0
-  SubmitDepth: 0
+  SubmitDepth: 1
   DepthSorting: 0
   DepthTestRange: 0
-  DepthTestNearZ: 0.19200000166893005
-  DepthTestFarZ: 2.4000000953674316
+  DepthTestNearZ: 0
+  DepthTestFarZ: 0.800000011920929
