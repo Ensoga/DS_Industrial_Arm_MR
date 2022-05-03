@@ -44,12 +44,29 @@ namespace HiS.XR
         // Update is called once per frame
         void Update()
         {
-            if(RobotIsOnline)
+            if(!RobotIsOnline)
             {
+                /*
                 cloudHandlerHelper.GetThingProperties(out _THXanswer);
                 for(int i = 0; i < _propertyNames.Count; i++)
                 {
                     urdfRobot.Values[i] = ((float)_THXanswer[_propertyNames[i]])/1000 + JointsOffsets[i];
+                }
+                */
+                for (int i = 0; i <= 5; i++)
+                {
+                    cloudHandlerHelper.GetThingPropertyValue(cloudHandlerHelper.m_GetThingProperties[i], out double jvalue);
+
+                    urdfRobot.Values[i] = (((float)jvalue) / 1000);
+                }
+            }
+            else
+            {
+                for (int i = 0; i <= 5; i++)
+                {
+                    cloudHandlerHelper.GetThingPropertyValue(cloudHandlerHelper.m_GetThingProperties[i], out double jvalue);
+
+                    urdfRobot.Values[i] = ((float)jvalue/1000);
                 }
             }
         }
@@ -80,8 +97,8 @@ namespace HiS.XR
                 }
                 index++;
             }
-            JointsOffsets[1] = Mathf.PI / 2;
-            JointsOffsets[3] = Mathf.PI / 2;
+            //JointsOffsets[1] = Mathf.PI / 2;
+            //JointsOffsets[3] = Mathf.PI / 2;
         }
     }
 }

@@ -3022,7 +3022,7 @@ GameObject:
   m_Component:
   - component: {fileID: 362189323}
   m_Layer: 0
-  m_Name: Debug Object Menu
+  m_Name: Debug Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9263,6 +9263,14 @@ PrefabInstance:
       propertyPath: m_IsKinematic
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -8807686778195752371, guid: ce706135621a67640bcab3c704957ee6, type: 3}
+      propertyPath: m_TagString
+      value: RobotVisual
+      objectReference: {fileID: 0}
+    - target: {fileID: -8064520956730044925, guid: ce706135621a67640bcab3c704957ee6, type: 3}
+      propertyPath: m_TagString
+      value: RobotVisual
+      objectReference: {fileID: 0}
     - target: {fileID: -8037963624398644204, guid: ce706135621a67640bcab3c704957ee6, type: 3}
       propertyPath: m_ConnectedAnchor.x
       value: 8.881784e-15
@@ -9275,8 +9283,48 @@ PrefabInstance:
       propertyPath: m_ConnectedAnchor.z
       value: 0.000000007450581
       objectReference: {fileID: 0}
+    - target: {fileID: -7196545651069343329, guid: ce706135621a67640bcab3c704957ee6, type: 3}
+      propertyPath: m_TagString
+      value: RobotVisual
+      objectReference: {fileID: 0}
+    - target: {fileID: -7117271028856719397, guid: ce706135621a67640bcab3c704957ee6, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6347655007756404155, guid: ce706135621a67640bcab3c704957ee6, type: 3}
+      propertyPath: m_TagString
+      value: RobotVisual
+      objectReference: {fileID: 0}
+    - target: {fileID: -6255458059476573698, guid: ce706135621a67640bcab3c704957ee6, type: 3}
+      propertyPath: m_TagString
+      value: RobotVisual
+      objectReference: {fileID: 0}
     - target: {fileID: -6237356330802890400, guid: ce706135621a67640bcab3c704957ee6, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6134245665847014800, guid: ce706135621a67640bcab3c704957ee6, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6134245665847014800, guid: ce706135621a67640bcab3c704957ee6, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6134245665847014800, guid: ce706135621a67640bcab3c704957ee6, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 366655833037404677, guid: 7c094ecd1728fe545b0c8862cf7e0ada, type: 3}
+    - target: {fileID: -5526091205809159241, guid: ce706135621a67640bcab3c704957ee6, type: 3}
+      propertyPath: m_TagString
+      value: RobotVisual
+      objectReference: {fileID: 0}
+    - target: {fileID: -5499435298881076248, guid: ce706135621a67640bcab3c704957ee6, type: 3}
+      propertyPath: m_TagString
+      value: RobotVisual
+      objectReference: {fileID: 0}
+    - target: {fileID: -5414201943311447984, guid: ce706135621a67640bcab3c704957ee6, type: 3}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -5121678296866273005, guid: ce706135621a67640bcab3c704957ee6, type: 3}
@@ -9298,6 +9346,14 @@ PrefabInstance:
     - target: {fileID: -5117212178417795214, guid: ce706135621a67640bcab3c704957ee6, type: 3}
       propertyPath: m_ConnectedAnchor.z
       value: 0.1719
+      objectReference: {fileID: 0}
+    - target: {fileID: -4463818634675808796, guid: ce706135621a67640bcab3c704957ee6, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -3813751082561917550, guid: ce706135621a67640bcab3c704957ee6, type: 3}
+      propertyPath: m_TagString
+      value: RobotVisual
       objectReference: {fileID: 0}
     - target: {fileID: -3303077921424876939, guid: ce706135621a67640bcab3c704957ee6, type: 3}
       propertyPath: m_RootOrder
@@ -9379,6 +9435,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -3247330866829188067, guid: ce706135621a67640bcab3c704957ee6, type: 3}
+      propertyPath: m_TagString
+      value: RobotVisual
+      objectReference: {fileID: 0}
     - target: {fileID: -3063131405546401613, guid: ce706135621a67640bcab3c704957ee6, type: 3}
       propertyPath: m_UseGravity
       value: 0
@@ -9386,6 +9446,10 @@ PrefabInstance:
     - target: {fileID: -3063131405546401613, guid: ce706135621a67640bcab3c704957ee6, type: 3}
       propertyPath: m_IsKinematic
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -2685108971982486567, guid: ce706135621a67640bcab3c704957ee6, type: 3}
+      propertyPath: m_TagString
+      value: RobotVisual
       objectReference: {fileID: 0}
     - target: {fileID: -2653456560558695196, guid: ce706135621a67640bcab3c704957ee6, type: 3}
       propertyPath: m_UseGravity
@@ -9398,6 +9462,10 @@ PrefabInstance:
     - target: {fileID: -2221946699824045903, guid: ce706135621a67640bcab3c704957ee6, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -2221946699824045903, guid: ce706135621a67640bcab3c704957ee6, type: 3}
+      propertyPath: m_TagString
+      value: RobotVisual
       objectReference: {fileID: 0}
     - target: {fileID: -1724200497901500488, guid: ce706135621a67640bcab3c704957ee6, type: 3}
       propertyPath: m_LocalRotation.w
@@ -9437,7 +9505,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -435908010097413937, guid: ce706135621a67640bcab3c704957ee6, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -435908010097413937, guid: ce706135621a67640bcab3c704957ee6, type: 3}
       propertyPath: m_LocalRotation.y
@@ -9445,7 +9513,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -435908010097413937, guid: ce706135621a67640bcab3c704957ee6, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000842937
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -76180995571358860, guid: ce706135621a67640bcab3c704957ee6, type: 3}
+      propertyPath: m_TagString
+      value: RobotVisual
       objectReference: {fileID: 0}
     - target: {fileID: -35514081881065667, guid: ce706135621a67640bcab3c704957ee6, type: 3}
       propertyPath: m_LocalRotation.w
@@ -9454,6 +9526,10 @@ PrefabInstance:
     - target: {fileID: -35514081881065667, guid: ce706135621a67640bcab3c704957ee6, type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 531637147571795064, guid: ce706135621a67640bcab3c704957ee6, type: 3}
+      propertyPath: m_TagString
+      value: RobotVisual
       objectReference: {fileID: 0}
     - target: {fileID: 582744866317960085, guid: ce706135621a67640bcab3c704957ee6, type: 3}
       propertyPath: m_UseGravity
@@ -9491,6 +9567,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1445951593600352566, guid: ce706135621a67640bcab3c704957ee6, type: 3}
+      propertyPath: m_TagString
+      value: RobotVisual
+      objectReference: {fileID: 0}
+    - target: {fileID: 1534186647361019609, guid: ce706135621a67640bcab3c704957ee6, type: 3}
+      propertyPath: m_TagString
+      value: RobotVisual
+      objectReference: {fileID: 0}
     - target: {fileID: 1583296485836294022, guid: ce706135621a67640bcab3c704957ee6, type: 3}
       propertyPath: m_Convex
       value: 0
@@ -9498,6 +9582,14 @@ PrefabInstance:
     - target: {fileID: 1583296485836294022, guid: ce706135621a67640bcab3c704957ee6, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2313750226063745582, guid: ce706135621a67640bcab3c704957ee6, type: 3}
+      propertyPath: m_TagString
+      value: RobotVisual
+      objectReference: {fileID: 0}
+    - target: {fileID: 2464213890015632501, guid: ce706135621a67640bcab3c704957ee6, type: 3}
+      propertyPath: m_TagString
+      value: RobotVisual
       objectReference: {fileID: 0}
     - target: {fileID: 2656040906308512989, guid: ce706135621a67640bcab3c704957ee6, type: 3}
       propertyPath: m_IsActive
@@ -9511,6 +9603,10 @@ PrefabInstance:
       propertyPath: m_IsKinematic
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3678696548375847817, guid: ce706135621a67640bcab3c704957ee6, type: 3}
+      propertyPath: m_TagString
+      value: RobotVisual
+      objectReference: {fileID: 0}
     - target: {fileID: 3823150362559779189, guid: ce706135621a67640bcab3c704957ee6, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
@@ -9518,6 +9614,10 @@ PrefabInstance:
     - target: {fileID: 3823150362559779189, guid: ce706135621a67640bcab3c704957ee6, type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3974371122279599880, guid: ce706135621a67640bcab3c704957ee6, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4314249684133149578, guid: ce706135621a67640bcab3c704957ee6, type: 3}
       propertyPath: m_UseGravity
@@ -9534,6 +9634,10 @@ PrefabInstance:
     - target: {fileID: 4966843183202767602, guid: ce706135621a67640bcab3c704957ee6, type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5399055915315338077, guid: ce706135621a67640bcab3c704957ee6, type: 3}
+      propertyPath: m_TagString
+      value: RobotVisual
       objectReference: {fileID: 0}
     - target: {fileID: 5460757065619685884, guid: ce706135621a67640bcab3c704957ee6, type: 3}
       propertyPath: UseGravity
@@ -9577,11 +9681,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5460757065619685884, guid: ce706135621a67640bcab3c704957ee6, type: 3}
       propertyPath: MovableJoints.Array.data[1].Offset
-      value: -1.570796
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5460757065619685884, guid: ce706135621a67640bcab3c704957ee6, type: 3}
       propertyPath: MovableJoints.Array.data[3].Offset
-      value: -1.570796
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5475601765364290477, guid: ce706135621a67640bcab3c704957ee6, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6168963265313744710, guid: ce706135621a67640bcab3c704957ee6, type: 3}
       propertyPath: m_ConnectedAnchor.x
@@ -9607,6 +9715,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6985189165133847384, guid: ce706135621a67640bcab3c704957ee6, type: 3}
+      propertyPath: m_TagString
+      value: RobotVisual
+      objectReference: {fileID: 0}
     - target: {fileID: 7159641949466520470, guid: ce706135621a67640bcab3c704957ee6, type: 3}
       propertyPath: m_ConnectedAnchor.y
       value: 0.1273
@@ -9625,7 +9737,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8107531424806051777, guid: ce706135621a67640bcab3c704957ee6, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 8107531424806051777, guid: ce706135621a67640bcab3c704957ee6, type: 3}
       propertyPath: m_LocalRotation.y
@@ -9633,7 +9745,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8107531424806051777, guid: ce706135621a67640bcab3c704957ee6, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000842937
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 9152272717090847670, guid: ce706135621a67640bcab3c704957ee6, type: 3}
       propertyPath: m_LocalRotation.w
@@ -14969,7 +15081,7 @@ Transform:
   m_GameObject: {fileID: 1929924420}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1659766037}
@@ -16097,7 +16209,7 @@ Transform:
   m_GameObject: {fileID: 2079863119}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1659766037}

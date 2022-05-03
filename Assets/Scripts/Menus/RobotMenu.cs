@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class RobotMenu : MonoBehaviour
 {
-    GameObject baselink;
+    //List<GameObject> RobotVisuals = new List<GameObject>();
+    GameObject[] RobotVisuals;
+    List<MeshRenderer> meshRenderers = new List<MeshRenderer>();
     private bool RobotVisible = true;
 
     GameObject MR_camera;
@@ -12,8 +14,12 @@ public class RobotMenu : MonoBehaviour
 
     private void Awake()
     {
-        baselink = GameObject.Find("base_link");
-        
+        RobotVisuals = GameObject.FindGameObjectsWithTag("RobotVisual");
+        foreach (GameObject RobotVisual in RobotVisuals)
+        {
+            meshRenderers.Add(RobotVisual.GetComponent<MeshRenderer>());
+        }
+
         MR_camera = GameObject.Find("XRRig");
         varjo_Marker_Manager = MR_camera.GetComponent<Varjo_Marker_Manager>();
     }
@@ -21,8 +27,7 @@ public class RobotMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        baselink.transform.localScale = new Vector3(1, 1, 1);
-        //baselink.SetActive(RobotVisible);
+        
     }
 
     // Update is called once per frame
@@ -35,16 +40,22 @@ public class RobotMenu : MonoBehaviour
     {
         //RobotVisible = !RobotVisible;
         //baselink.SetActive(RobotVisible);
-        if(RobotVisible)
+        RobotVisible = !RobotVisible;
+        if (RobotVisible)
         {
-            baselink.transform.localScale = new Vector3(0, 0, 0);
-            RobotVisible = false;
+            foreach (MeshRenderer meshRenderer in meshRenderers)
+            {
+                meshRenderer.enabled = true;
+            }
         }
         else
         {
-            baselink.transform.localScale = new Vector3(1, 1, 1);
-            RobotVisible = true;
+            foreach (MeshRenderer meshRenderer in meshRenderers)
+            {
+                meshRenderer.enabled = false;
+            }
         }
+        
     }
 
     public void ScanButton()

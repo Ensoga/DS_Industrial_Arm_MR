@@ -5,7 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - MenuScripts
-  - Invisiblizar
+  - RobotVisual
   layers:
   - Default
   - TransparentFX
