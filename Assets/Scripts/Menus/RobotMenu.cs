@@ -4,13 +4,22 @@ using UnityEngine;
 
 public class RobotMenu : MonoBehaviour
 {
-    //List<GameObject> RobotVisuals = new List<GameObject>();
+    public List<GameObject> ButtonList;
+    public GameObject WarningCanvas; 
+    public GameObject ScanCanvas;
+    public GameObject LockCanvas;
+
+    GameObject UR10e;
     GameObject[] RobotVisuals;
     List<MeshRenderer> meshRenderers = new List<MeshRenderer>();
-    private bool RobotVisible = true;
+    private bool RobotVisible = false;
 
     GameObject MR_camera;
     Varjo_Marker_Manager varjo_Marker_Manager;
+    private bool ScanMode = false;
+    GameObject WorkObjects;
+    GameObject EndEffector;
+    private bool VacuumOn = false;
 
     private void Awake()
     {
@@ -20,14 +29,24 @@ public class RobotMenu : MonoBehaviour
             meshRenderers.Add(RobotVisual.GetComponent<MeshRenderer>());
         }
 
+        UR10e = GameObject.Find("ur10_robot");
         MR_camera = GameObject.Find("XRRig");
         varjo_Marker_Manager = MR_camera.GetComponent<Varjo_Marker_Manager>();
+
+        EndEffector = GameObject.Find("ee_link");
+        WorkObjects = GameObject.Find("WorkObjects");
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        UR10e.SetActive(RobotVisible);
+
+        foreach (GameObject Button in ButtonList)
+        {
+            Button.SetActive(false);
+        }
+        WarningCanvas.SetActive(true);
     }
 
     // Update is called once per frame
@@ -38,8 +57,6 @@ public class RobotMenu : MonoBehaviour
 
     public void VisibleButton()
     {
-        //RobotVisible = !RobotVisible;
-        //baselink.SetActive(RobotVisible);
         RobotVisible = !RobotVisible;
         if (RobotVisible)
         {
@@ -55,17 +72,53 @@ public class RobotMenu : MonoBehaviour
                 meshRenderer.enabled = false;
             }
         }
-        
     }
 
     public void ScanButton()
     {
-        varjo_Marker_Manager.enabled = true;
+        ScanMode = !ScanMode;
+        if (ScanMode)
+        {
+            varjo_Marker_Manager.enabled = true;
+            UR10e.SetActive(true);
+            ScanCanvas.SetActive(false);
+            LockCanvas.SetActive(true);
+            
+            foreach (GameObject Button in ButtonList)
+            {
+                Button.SetActive(false);
+            }
+            WarningCanvas.SetActive(true);
+        }
+        else
+        {
+            varjo_Marker_Manager.enabled = false;
+            LockCanvas.SetActive(false);
+            ScanCanvas.SetActive(true);
+
+            WarningCanvas.SetActive(false);
+            foreach (GameObject Button in ButtonList)
+            {
+                Button.SetActive(true);
+            }
+        }
     }
 
-    public void LockButton()
+    public void LockButton()    // No borrar hasta haber implementado el robot menu
     {
         varjo_Marker_Manager.enabled = false;
     }
 
+    public void VaccumButton()
+    {
+        VacuumOn = !VacuumOn;
+        if (VacuumOn)
+        {
+            WorkObjects.transform.SetParent(EndEffector.transform);
+        }
+        else
+        {
+            WorkObjects.transform.SetParent(null);
+        }
+    }
 }

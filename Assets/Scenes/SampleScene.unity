@@ -838,6 +838,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddb42c3bdf263ae4b8da7ef2a6aa0045, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ButtonList: []
+  WarningCanvas: {fileID: 0}
+  ScanCanvas: {fileID: 0}
+  LockCanvas: {fileID: 0}
 --- !u!1 &129861893
 GameObject:
   m_ObjectHideFlags: 0
@@ -3027,7 +3031,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &362189323
 Transform:
   m_ObjectHideFlags: 0
@@ -9090,7 +9094,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1152311363
 Transform:
   m_ObjectHideFlags: 0
@@ -13319,7 +13323,7 @@ GameObject:
   - component: {fileID: 1659766036}
   - component: {fileID: 1659766038}
   m_Layer: 0
-  m_Name: Pickeable
+  m_Name: WorkObjects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
