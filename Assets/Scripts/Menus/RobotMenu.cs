@@ -8,6 +8,8 @@ public class RobotMenu : MonoBehaviour
     public GameObject WarningCanvas; 
     public GameObject ScanCanvas;
     public GameObject LockCanvas;
+    public GameObject OtherButtons;
+    private bool FirstScan = false;
 
     GameObject UR10e;
     GameObject[] RobotVisuals;
@@ -47,6 +49,7 @@ public class RobotMenu : MonoBehaviour
             Button.SetActive(false);
         }
         WarningCanvas.SetActive(true);
+        OtherButtons.SetActive(false);
     }
 
     // Update is called once per frame
@@ -101,6 +104,11 @@ public class RobotMenu : MonoBehaviour
             {
                 Button.SetActive(true);
             }
+        }
+        if (FirstScan==false)
+        {
+            OtherButtons.SetActive(true);
+            FirstScan = true;
         }
     }
 
