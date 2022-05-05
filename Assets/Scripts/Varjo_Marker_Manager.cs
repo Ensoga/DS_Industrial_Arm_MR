@@ -15,10 +15,10 @@ public class Varjo_Marker_Manager : MonoBehaviour
         public bool dynamicTracking;
     }
 
-    private float OffSet_x = -0.22F;
-    private float OffSet_y = -0.22F;
-    private float OffSet_z = 0.14F;
-    private Quaternion quaternion = Quaternion.Euler(0,270,0);
+    public float OffSet_x = -0.22F;
+    public float OffSet_y = -0.22F;
+    public float OffSet_z = 0.14F;
+    public Quaternion quaternion = Quaternion.Euler(0,270,0);
     
 
 

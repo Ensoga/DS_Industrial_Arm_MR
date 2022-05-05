@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Leap.Unity.Interaction;
 
 public class RobotMenu : MonoBehaviour
 {
@@ -9,7 +10,20 @@ public class RobotMenu : MonoBehaviour
     public GameObject ScanCanvas;
     public GameObject LockCanvas;
     public GameObject OtherButtons;
-    private bool FirstScan = false;
+
+    [Header("Submenu")]
+    public GameObject submenu;
+    public GameObject buttonParent;
+
+    [Header("Move Button")]
+    public GameObject moveButton;
+    public Material OffMaterial;
+    public Material OnMaterial;
+
+    public Vector3 offSetPos = new Vector3(-0.025f, -0.1795f, 0.0738f);
+    public Quaternion offSetRot = new Quaternion(-79.248f, 57.918f, 52.085f, 1f);
+
+    private bool submenuAttached;
 
     GameObject UR10e;
     GameObject[] RobotVisuals;
@@ -42,6 +56,7 @@ public class RobotMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         UR10e.SetActive(RobotVisible);
 
         foreach (GameObject Button in ButtonList)
@@ -49,13 +64,26 @@ public class RobotMenu : MonoBehaviour
             Button.SetActive(false);
         }
         WarningCanvas.SetActive(true);
-        OtherButtons.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        /*
+        if (submenu.GetComponent<InteractionBehaviour>().isGrasped)
+        {
+            moveButton.GetComponent<MeshRenderer>().material = OnMaterial;
+            if (submenuAttached)  
+            {
+                submenu.transform.parent = null;
+                submenuAttached = false;
+            }
+        }
+        else
+        {
+            moveButton.GetComponent<MeshRenderer>().material = OffMaterial;
+        }
+        */
     }
 
     public void VisibleButton()
@@ -91,7 +119,7 @@ public class RobotMenu : MonoBehaviour
             {
                 Button.SetActive(false);
             }
-            WarningCanvas.SetActive(true);
+            //WarningCanvas.SetActive(true);
         }
         else
         {
@@ -99,16 +127,11 @@ public class RobotMenu : MonoBehaviour
             LockCanvas.SetActive(false);
             ScanCanvas.SetActive(true);
 
-            WarningCanvas.SetActive(false);
+            //WarningCanvas.SetActive(false);
             foreach (GameObject Button in ButtonList)
             {
                 Button.SetActive(true);
             }
-        }
-        if (FirstScan==false)
-        {
-            OtherButtons.SetActive(true);
-            FirstScan = true;
         }
     }
 
