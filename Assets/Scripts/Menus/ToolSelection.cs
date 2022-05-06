@@ -5,6 +5,10 @@ public class ToolSelection : MonoBehaviour
     [SerializeField] public GameObject textvisible;
     [SerializeField] public GameObject texthidden;
     [SerializeField] public GameObject toolImage;
+    public GameObject tool1;
+
+    [SerializeField] private Vector3 _rotation;
+    [SerializeField] private float _speed;
 
 
     public int currentTool;
@@ -14,6 +18,13 @@ public class ToolSelection : MonoBehaviour
     void Start()
     {
         transform.GetChild(0).gameObject.SetActive(true);
+    }
+
+    void Update()
+    {
+        toolImage.transform.Rotate(_rotation * _speed * Time.deltaTime);
+        tool1.transform.Rotate(_rotation * _speed * Time.deltaTime);
+
     }
     public void Next()
     {
