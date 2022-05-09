@@ -6,6 +6,7 @@ TagManager:
   tags:
   - MenuScripts
   - RobotVisual
+  - UR10e
   layers:
   - Default
   - TransparentFX

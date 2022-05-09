@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Leap.Unity.Interaction;
+using HiS.XR;
 
 public class RobotMenu : MonoBehaviour
 {
+    #region Variables
     public List<GameObject> ButtonList;
     public GameObject WarningCanvas; 
     public GameObject ScanCanvas;
@@ -37,6 +39,13 @@ public class RobotMenu : MonoBehaviour
     GameObject EndEffector;
     private bool VacuumOn = false;
 
+    GameObject freedriveButton;
+    FreedriveCloudBehaviour freedriveCloudBehaviour;
+    private bool _VarjoFreedrive = false;
+    private bool _InternalFreedrive;
+
+    #endregion
+
     private void Awake()
     {
         RobotVisuals = GameObject.FindGameObjectsWithTag("RobotVisual");
@@ -45,12 +54,15 @@ public class RobotMenu : MonoBehaviour
             meshRenderers.Add(RobotVisual.GetComponent<MeshRenderer>());
         }
 
-        UR10e = GameObject.Find("ur10_robot");
+        UR10e = GameObject.FindGameObjectWithTag("UR10e");
         MR_camera = GameObject.Find("XRRig");
         varjo_Marker_Manager = MR_camera.GetComponent<Varjo_Marker_Manager>();
 
         EndEffector = GameObject.Find("ee_link");
         WorkObjects = GameObject.Find("WorkObjects");
+
+        freedriveButton = GameObject.Find("Freedrive UI Button");
+        freedriveCloudBehaviour = freedriveButton.GetComponent<FreedriveCloudBehaviour>();
     }
 
     // Start is called before the first frame update
@@ -146,10 +158,23 @@ public class RobotMenu : MonoBehaviour
         if (VacuumOn)
         {
             WorkObjects.transform.SetParent(EndEffector.transform);
+            // Change Color
         }
         else
         {
             WorkObjects.transform.SetParent(null);
         }
+    }
+
+    public void FreedriveButton()
+    {
+        _VarjoFreedrive = !_VarjoFreedrive;
+        freedriveCloudBehaviour.SetFreedrive(_VarjoFreedrive);
+        
+    }
+
+    public void FreedriveButtonFeedback(bool _FreedriveValue)
+    {
+        // Change Color of the button.
     }
 }

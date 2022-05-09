@@ -29,20 +29,20 @@ public class ToolSelection : MonoBehaviour
     public void Next()
     {
         index++;
-        if (index == 2)
+        if (index == transform.childCount)
         {
             index = 0;
         }
-        ChangeTool(index);
+        ChangeTool();
     }
     public void Previous()
     {
         index--;
         if (index == -1)
         {
-            index = 1;
+            index = transform.childCount-1;
         }
-        ChangeTool(index);
+        ChangeTool();
     }
 
     private void SelectTool(int _index)
@@ -65,7 +65,7 @@ public class ToolSelection : MonoBehaviour
         }
     }
 
-    public void ChangeTool(int _change)
+    public void ChangeTool()
     {
         currentTool = index;
         SelectTool(currentTool);
@@ -75,7 +75,10 @@ public class ToolSelection : MonoBehaviour
     {
         if (visible==true)
         {
-            transform.GetChild(index).gameObject.SetActive(false);
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                transform.GetChild(i).gameObject.SetActive(false);
+            }
             visible = false;
             textvisible.SetActive(false);
             texthidden.SetActive(true);
@@ -83,7 +86,10 @@ public class ToolSelection : MonoBehaviour
         }
         else
         {
-            transform.GetChild(index).gameObject.SetActive(true);
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                transform.GetChild(i).gameObject.SetActive(true);
+            }
             visible = true;
             texthidden.SetActive(false);
             textvisible.SetActive(true);

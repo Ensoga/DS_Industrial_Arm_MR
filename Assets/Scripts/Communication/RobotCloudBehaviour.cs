@@ -45,7 +45,6 @@ namespace HiS.XR
         {
             if(RobotIsOnline)
             {
-                
                 cloudHandlerHelper.GetThingProperties(out _THXanswer);
                 for(int i = 0; i < _propertyNames.Count; i++)
                 {
