@@ -6,9 +6,11 @@ public class WOMenu : MonoBehaviour
 {
     [SerializeField] GameObject VisibleText;
     [SerializeField] GameObject HiddenText;
+    [SerializeField] GameObject WOModelMenu;
 
     GameObject workObjects;
-    List<GameObject> WorkObjectsList = new List<GameObject>();
+    List<GameObject> WOList = new List<GameObject>();
+    List<GameObject> WOModelMenuList = new List<GameObject>();
     private int _index = 0;
     private bool _visible = false;
 
@@ -22,11 +24,14 @@ public class WOMenu : MonoBehaviour
     {
         for (int i = 0; i < workObjects.transform.childCount; i++)
         {
-            WorkObjectsList.Add(workObjects.transform.GetChild(i).gameObject);
-            WorkObjectsList[i].SetActive(false);
+            WOList.Add(workObjects.transform.GetChild(i).gameObject);
+            WOList[i].SetActive(false);
+            WOModelMenuList.Add(WOModelMenu.transform.GetChild(i).gameObject);
+            WOModelMenuList[i].SetActive(false);
         }
         VisibleText.SetActive(false);
         HiddenText.SetActive(true);
+        WOModelMenuList[0].SetActive(true);
     }
 
     // Update is called once per frame
@@ -38,36 +43,47 @@ public class WOMenu : MonoBehaviour
     public void NextButton()
     {
         _index++;
-        if (_index > WorkObjectsList.Count - 1)
+        if (_index > WOList.Count - 1)
         {
             _index = 0;
         }
         if (_visible)
         {
-            SelectWorkObject();
+            SelectWO();
         }
+        ShowWOModel();
     }
 
     public void PreviousButton()
     {
         _index--;
-        if (_index < -1)
+        if (_index < 0)
         {
-            _index = WorkObjectsList.Count - 1;
+            _index = WOList.Count - 1;
         }
         if (_visible)
         {
-            SelectWorkObject();
+            SelectWO();
         }
+        ShowWOModel();
     }
 
-    private void SelectWorkObject()
+    private void SelectWO()
     {
-        foreach (GameObject Tool in WorkObjectsList)
+        foreach (GameObject Tool in WOList)
         {
             Tool.SetActive(false);
         }
-        WorkObjectsList[_index].SetActive(true);
+        WOList[_index].SetActive(true);
+    }
+
+    private void ShowWOModel()
+    {
+        foreach (GameObject WOModelMenu in WOModelMenuList)
+        {
+            WOModelMenu.SetActive(false);
+        }
+        WOModelMenuList[_index].SetActive(true);
     }
 
     public void VisibleButton()
@@ -75,11 +91,11 @@ public class WOMenu : MonoBehaviour
         _visible = !_visible;
         if (_visible)
         {
-            WorkObjectsList[_index].SetActive(true);
+            WOList[_index].SetActive(true);
         }
         else
         {
-            foreach (GameObject Tool in WorkObjectsList)
+            foreach (GameObject Tool in WOList)
             {
                 Tool.SetActive(false);
             }
