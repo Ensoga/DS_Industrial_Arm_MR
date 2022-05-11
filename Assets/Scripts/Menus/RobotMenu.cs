@@ -13,7 +13,11 @@ public class RobotMenu : MonoBehaviour
     [SerializeField] GameObject PressToScan;
     [SerializeField] GameObject AfterFirstScan;
     [SerializeField] GameObject AfterLock;
-    
+    [SerializeField] GameObject RobotImage;
+    [SerializeField] GameObject FreedriveImage;
+
+
+
 
     [Header("Submenu")]
     public GameObject submenu;
@@ -72,6 +76,8 @@ public class RobotMenu : MonoBehaviour
     {
         varjo_Marker_Manager.enabled = false;
         LockButtonUI.SetActive(false);
+        RobotImage.SetActive(false);
+        FreedriveImage.SetActive(false);
         foreach (GameObject Button in ButtonList)
         {
             Button.SetActive(false);
@@ -137,6 +143,8 @@ public class RobotMenu : MonoBehaviour
         LockButtonUI.SetActive(false);
         ScanButtonUI.SetActive(true);
         AfterLock.SetActive(true);
+        RobotImage.SetActive(true);
+        FreedriveImage.SetActive(true);
 
         foreach (GameObject Button in ButtonList)
         {

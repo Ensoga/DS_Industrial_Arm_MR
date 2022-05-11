@@ -7,8 +7,13 @@ public class ToolSelection : MonoBehaviour
     [SerializeField] public GameObject toolImage;
     public GameObject tool1;
 
-    [SerializeField] private Vector3 _rotation;
-    [SerializeField] private float _speed;
+
+    [SerializeField] public Vector3 _rotation;
+    [SerializeField] public float _speed;
+    [SerializeField] public float _limit;
+    [SerializeField] public float _speedUD;
+
+
 
 
     public int currentTool;
@@ -24,6 +29,9 @@ public class ToolSelection : MonoBehaviour
     {
         toolImage.transform.Rotate(_rotation * _speed * Time.deltaTime);
         tool1.transform.Rotate(_rotation * _speed * Time.deltaTime);
+
+        float y = Mathf.PingPong(Time.time * _speedUD, 1) * 6 - 3; //Code for hovering
+        toolImage.transform.position = new Vector3(0, y, 0);
 
     }
     public void Next()
