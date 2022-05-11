@@ -14,11 +14,11 @@ public class ToolMenu : MonoBehaviour
     private int _index = 0;
     private bool _visible = false;
 
-    /*
+    
     [SerializeField] Vector3 _rotation;
     [SerializeField] float _speed;
     [SerializeField] float _limit;
-    [SerializeField] float _speedUD;*/
+    [SerializeField] float _speedUD;
 
     private void Awake()
     {
@@ -43,6 +43,10 @@ public class ToolMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        toolsModelMenu.transform.Rotate(_rotation * _speed * Time.deltaTime);
+        //float y = Mathf.PingPong(Time.time * _speedUD, 1) * 6 - 3; //Code for hovering
+        //toolsModelMenu.transform.position = new Vector3(0, y, 0);
+
         /*
         if(_visible)
         {

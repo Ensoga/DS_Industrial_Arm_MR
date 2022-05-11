@@ -15,6 +15,10 @@ public class RobotMenu : MonoBehaviour
     [SerializeField] GameObject AfterLock;
     [SerializeField] GameObject RobotImage;
     [SerializeField] GameObject FreedriveImage;
+    [SerializeField] GameObject PressureGaugeSolid;
+    [SerializeField] GameObject PressureGaugeVF;
+    [SerializeField] GameObject PressureGaugeVB;
+
 
 
 
@@ -132,6 +136,7 @@ public class RobotMenu : MonoBehaviour
         UR10e.SetActive(true);
         ScanButtonUI.SetActive(false);
         PressToScan.SetActive(false);
+        AfterLock.SetActive(false);
         AfterFirstScan.SetActive(true);
         LockButtonUI.SetActive(true);
     }
@@ -145,6 +150,8 @@ public class RobotMenu : MonoBehaviour
         AfterLock.SetActive(true);
         RobotImage.SetActive(true);
         FreedriveImage.SetActive(true);
+        PressureGaugeSolid.SetActive(true);
+
 
         foreach (GameObject Button in ButtonList)
         {
@@ -159,10 +166,14 @@ public class RobotMenu : MonoBehaviour
         {
             WorkObjects.transform.SetParent(EndEffector.transform);
             // Change Color
+            PressureGaugeVB.SetActive(false);//preguntar a Enrique
+            PressureGaugeVF.SetActive(true);
         }
         else
         {
             WorkObjects.transform.SetParent(null);
+            PressureGaugeVF.SetActive(false);
+            PressureGaugeVB.SetActive(true);
         }
     }
 
