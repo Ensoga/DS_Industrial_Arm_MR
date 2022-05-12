@@ -44,7 +44,6 @@ public class RobotMenu : MonoBehaviour
 
     GameObject MR_camera;
     Varjo_Marker_Manager varjo_Marker_Manager;
-    private bool ScanMode = false;
     GameObject WorkObjects;
     GameObject EndEffector;
     private bool VacuumOn = false;
