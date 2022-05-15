@@ -135,13 +135,14 @@ public class RobotMenu : MonoBehaviour
         ScanButtonUI.SetActive(false);
         PressToScan.SetActive(false);
         AfterLock.SetActive(false);
-        Invoke("DelayScanCompleted", 2);
+        Invoke("DelayScanCompleted", 1);
         
         LockButtonUI.SetActive(true);
     }
 
     public void LockButton()    
     {
+
         varjo_Marker_Manager.enabled = false;
         AfterFirstScan.SetActive(false);
         LockButtonUI.SetActive(false);
@@ -165,9 +166,7 @@ public class RobotMenu : MonoBehaviour
         {
             WorkObjects.transform.SetParent(EndEffector.transform);
             VacuumOFF.SetActive(false);
-            VacuumON.SetActive(true);
-            
-
+            VacuumON.SetActive(true);         
         }
         else
         {

@@ -34,6 +34,7 @@ namespace UHI.Tracking.InteractionEngine.Examples
         public Color hoverColor = Color.Lerp(Color.black, Color.white, 0.7F);
         public Color primaryHoverColor = Color.Lerp(Color.black, Color.white, 0.8F);
 
+
         [Header("InteractionButton Colors")]
         [Tooltip("This color only applies if the object is an InteractionButton or InteractionSlider.")]
         public Color pressedColor = Color.white;
