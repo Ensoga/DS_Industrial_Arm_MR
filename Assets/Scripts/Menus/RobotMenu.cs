@@ -48,7 +48,6 @@ public class RobotMenu : MonoBehaviour
     GameObject EndEffector;
     private bool VacuumOn = false;
 
-    GameObject freedriveButton;
     FreedriveCloudBehaviour freedriveCloudBehaviour;
     private bool _VarjoFreedrive = false;
     private bool _InternalFreedrive;
@@ -70,8 +69,7 @@ public class RobotMenu : MonoBehaviour
         EndEffector = GameObject.Find("ee_link");
         WorkObjects = GameObject.Find("WorkObjects");
 
-        freedriveButton = GameObject.Find("Freedrive UI Button");
-        //freedriveCloudBehaviour = freedriveButton.GetComponent<FreedriveCloudBehaviour>();
+        freedriveCloudBehaviour = GetComponent<FreedriveCloudBehaviour>();
     }
 
     // Start is called before the first frame update

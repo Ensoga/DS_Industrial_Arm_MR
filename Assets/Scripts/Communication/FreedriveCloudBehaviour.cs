@@ -47,12 +47,12 @@ namespace HiS.XR
             {
                 cloudHandlerHelper.GetThingProperties(out _THXanswer);
             }
-            robotMenu.FreedriveButtonFeedback(_THXanswer["InternalFreedrive"]);
+            robotMenu.FreedriveButtonFeedback(_THXanswer["Modbus_UR10e_Internal_Variables_InternalFreedrive"]);
         }
 
         public void SetFreedrive(bool _VarjoFreedrive)
         {
-            cloudHandlerHelper.SetPropertyValue("VarjoFreedrive", _VarjoFreedrive);
+            cloudHandlerHelper.SetPropertyValue("Modbus_UR10e_Internal_Variables_InternalFreedrive", _VarjoFreedrive);
         }
 
     }

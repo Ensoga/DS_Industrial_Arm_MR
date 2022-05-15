@@ -89,7 +89,8 @@ namespace HiS.XR
                     case THXbaseTypes.Boolean:
                         foreach (string thingProperty in _getThingProperties)
                         {
-                            _thingBooleanValuesDict[thingProperty] = (bool)objectAnswer.GetType().GetField(thingProperty).GetValue(objectAnswer);
+                            //_thingBooleanValuesDict[thingProperty] = (bool)objectAnswer.GetType().GetField(thingProperty).GetValue(objectAnswer);
+                            _thingBooleanValuesDict[thingProperty] = Convert.ToBoolean(objectAnswer.GetType().GetField(thingProperty).GetValue(objectAnswer));
 
                             if (_debugInfo && _debugLevel >= DebugLevel.Info)
                                 Debug.Log(thingProperty + " = " + _thingBooleanValuesDict[thingProperty].ToString());
