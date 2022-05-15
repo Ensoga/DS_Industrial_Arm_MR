@@ -15,9 +15,9 @@ public class RobotMenu : MonoBehaviour
     [SerializeField] GameObject AfterLock;
     [SerializeField] GameObject RobotImage;
     [SerializeField] GameObject FreedriveImage;
-    [SerializeField] GameObject PressureGaugeSolid;
-    [SerializeField] GameObject PressureGaugeVF;
-    [SerializeField] GameObject PressureGaugeVB;
+    [SerializeField] GameObject VacuumON;
+    [SerializeField] GameObject VacuumOFF;
+
 
 
 
@@ -75,6 +75,7 @@ public class RobotMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+       
         varjo_Marker_Manager.enabled = false;
         LockButtonUI.SetActive(false);
         RobotImage.SetActive(false);
@@ -134,7 +135,8 @@ public class RobotMenu : MonoBehaviour
         ScanButtonUI.SetActive(false);
         PressToScan.SetActive(false);
         AfterLock.SetActive(false);
-        AfterFirstScan.SetActive(true);
+        Invoke("DelayScanCompleted", 2);
+        
         LockButtonUI.SetActive(true);
     }
 
@@ -147,7 +149,7 @@ public class RobotMenu : MonoBehaviour
         AfterLock.SetActive(true);
         RobotImage.SetActive(true);
         FreedriveImage.SetActive(true);
-        PressureGaugeSolid.SetActive(true);
+        
 
 
         foreach (GameObject Button in ButtonList)
@@ -162,15 +164,16 @@ public class RobotMenu : MonoBehaviour
         if (VacuumOn)
         {
             WorkObjects.transform.SetParent(EndEffector.transform);
-            // Change Color
-            PressureGaugeVB.SetActive(false);//preguntar a Enrique
-            PressureGaugeVF.SetActive(true);
+            VacuumOFF.SetActive(false);
+            VacuumON.SetActive(true);
+            
+
         }
         else
         {
             WorkObjects.transform.SetParent(null);
-            PressureGaugeVF.SetActive(false);
-            PressureGaugeVB.SetActive(true);
+            VacuumON.SetActive(false);
+            VacuumOFF.SetActive(true);
         }
     }
 
@@ -184,5 +187,9 @@ public class RobotMenu : MonoBehaviour
     public void FreedriveButtonFeedback(bool _FreedriveValue)
     {
         // Change Color of the button.
+    }
+   public void DelayScanCompleted()
+    {
+        AfterFirstScan.SetActive(true);
     }
 }
