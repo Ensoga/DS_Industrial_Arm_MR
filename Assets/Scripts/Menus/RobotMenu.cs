@@ -17,11 +17,8 @@ public class RobotMenu : MonoBehaviour
     [SerializeField] GameObject FreedriveImage;
     [SerializeField] GameObject VacuumON;
     [SerializeField] GameObject VacuumOFF;
-
-
-
-
-
+    [SerializeField] GameObject RobotVisibleText;
+    [SerializeField] GameObject RobotHiddenText;
 
     [Header("Submenu")]
     public GameObject submenu;
@@ -118,13 +115,18 @@ public class RobotMenu : MonoBehaviour
             {
                 meshRenderer.enabled = true;
             }
+            RobotHiddenText.SetActive(false);
+            RobotVisibleText.SetActive(true);
         }
         else
         {
+            
             foreach (MeshRenderer meshRenderer in meshRenderers)
             {
                 meshRenderer.enabled = false;
             }
+            RobotVisibleText.SetActive(false);
+            RobotHiddenText.SetActive(true);
         }
     }
 
@@ -142,21 +144,21 @@ public class RobotMenu : MonoBehaviour
 
     public void LockButton()    
     {
-
-        varjo_Marker_Manager.enabled = false;
-        AfterFirstScan.SetActive(false);
-        LockButtonUI.SetActive(false);
-        ScanButtonUI.SetActive(true);
-        AfterLock.SetActive(true);
-        RobotImage.SetActive(true);
-        FreedriveImage.SetActive(true);
-        
-
-
-        foreach (GameObject Button in ButtonList)
+        if(AfterFirstScan)
         {
-            Button.SetActive(true);
-        }
+            varjo_Marker_Manager.enabled = false;
+            AfterFirstScan.SetActive(false);
+            LockButtonUI.SetActive(false);
+            ScanButtonUI.SetActive(true);
+            AfterLock.SetActive(true);
+            RobotImage.SetActive(true);
+            FreedriveImage.SetActive(true);
+
+            foreach (GameObject Button in ButtonList)
+            {
+                Button.SetActive(true);
+            }
+        }   
     }
 
     public void VaccumButton()
