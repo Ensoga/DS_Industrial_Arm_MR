@@ -10,6 +10,7 @@ TagManager:
   - Tools
   - WorkObjects
   - ToolsModelMenu
+  - Choque
   layers:
   - Default
   - TransparentFX
