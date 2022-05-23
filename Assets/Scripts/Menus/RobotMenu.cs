@@ -17,6 +17,7 @@ public class RobotMenu : MonoBehaviour
     [SerializeField] GameObject FreedriveImage;
     [SerializeField] GameObject VacuumON;
     [SerializeField] GameObject VacuumOFF;
+    [SerializeField] GameObject VacuumNotActive;
     [SerializeField] GameObject RobotVisibleText;
     [SerializeField] GameObject RobotHiddenText;
 
@@ -41,7 +42,14 @@ public class RobotMenu : MonoBehaviour
 
     GameObject MR_camera;
     Varjo_Marker_Manager varjo_Marker_Manager;
+
+    GameObject TOMenuToggleGO;
+    ToolMenu toolMenu;
+
     GameObject WorkObjects;
+    GameObject WOMenuToggleGO;
+    WOMenu woMenu;
+
     GameObject EndEffector;
     private bool VacuumOn = false;
 
@@ -67,6 +75,12 @@ public class RobotMenu : MonoBehaviour
         WorkObjects = GameObject.Find("WorkObjects");
 
         freedriveCloudBehaviour = GetComponent<FreedriveCloudBehaviour>();
+
+        WOMenuToggleGO = GameObject.Find("Work Object Menu Toggle");
+        woMenu = WOMenuToggleGO.GetComponent<WOMenu>();
+
+        TOMenuToggleGO = GameObject.Find("Tool Menu Toggle");
+        toolMenu = TOMenuToggleGO.GetComponent<ToolMenu>();
     }
 
     // Start is called before the first frame update
@@ -84,6 +98,9 @@ public class RobotMenu : MonoBehaviour
         UR10e.SetActive(RobotVisible);
         ScanButtonUI.SetActive(true);
         PressToScan.SetActive(true);
+        VacuumNotActive.SetActive(false);
+        VacuumON.SetActive(false);
+        VacuumOFF.SetActive(true);
     }
 
     // Update is called once per frame
@@ -163,19 +180,30 @@ public class RobotMenu : MonoBehaviour
 
     public void VaccumButton()
     {
-        VacuumOn = !VacuumOn;
-        if (VacuumOn)
+        if (toolMenu.ToolsList[1].active)
         {
-            WorkObjects.transform.SetParent(EndEffector.transform);
-            VacuumOFF.SetActive(false);
-            VacuumON.SetActive(true);         
+            VacuumNotActive.SetActive(false);
+            VacuumOn = !VacuumOn;
+            if (VacuumOn)
+            {
+                woMenu.WOList[woMenu.index].transform.SetParent(EndEffector.transform);
+                //WorkObjects.transform.SetParent(EndEffector.transform);
+                VacuumOFF.SetActive(false);
+                VacuumON.SetActive(true);
+            }
+            else
+            {
+                woMenu.WOList[woMenu.index].transform.SetParent(WorkObjects.transform);
+                //WorkObjects.transform.SetParent(null);
+                VacuumON.SetActive(false);
+                VacuumOFF.SetActive(true);
+            }
         }
         else
         {
-            WorkObjects.transform.SetParent(null);
-            VacuumON.SetActive(false);
-            VacuumOFF.SetActive(true);
+            VacuumNotActive.SetActive(true);
         }
+        
     }
 
     public void FreedriveButton()

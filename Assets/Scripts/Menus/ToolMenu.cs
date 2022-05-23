@@ -9,7 +9,7 @@ public class ToolMenu : MonoBehaviour
     [SerializeField] GameObject toolsModelMenu;
 
     GameObject tools;
-    List<GameObject> ToolsList = new List<GameObject>();
+    [HideInInspector] public List<GameObject> ToolsList = new List<GameObject>();
     List<GameObject> ToolsModelMenuList = new List<GameObject>();
     private int _index = 0;
     private bool _visible = false;

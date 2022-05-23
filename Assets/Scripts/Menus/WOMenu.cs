@@ -9,9 +9,9 @@ public class WOMenu : MonoBehaviour
     [SerializeField] GameObject WOModelMenu;
 
     GameObject workObjects;
-    List<GameObject> WOList = new List<GameObject>();
+    [HideInInspector] public List<GameObject> WOList = new List<GameObject>();
     List<GameObject> WOModelMenuList = new List<GameObject>();
-    private int _index = 0;
+    [HideInInspector] public int index = 0;
     private bool _visible = false;
 
     private void Awake()
@@ -42,10 +42,10 @@ public class WOMenu : MonoBehaviour
 
     public void NextButton()
     {
-        _index++;
-        if (_index > WOList.Count - 1)
+        index++;
+        if (index > WOList.Count - 1)
         {
-            _index = 0;
+            index = 0;
         }
         if (_visible)
         {
@@ -56,10 +56,10 @@ public class WOMenu : MonoBehaviour
 
     public void PreviousButton()
     {
-        _index--;
-        if (_index < 0)
+        index--;
+        if (index < 0)
         {
-            _index = WOList.Count - 1;
+            index = WOList.Count - 1;
         }
         if (_visible)
         {
@@ -74,7 +74,7 @@ public class WOMenu : MonoBehaviour
         {
             Tool.SetActive(false);
         }
-        WOList[_index].SetActive(true);
+        WOList[index].SetActive(true);
     }
 
     private void ShowWOModel()
@@ -83,7 +83,7 @@ public class WOMenu : MonoBehaviour
         {
             WOModelMenu.SetActive(false);
         }
-        WOModelMenuList[_index].SetActive(true);
+        WOModelMenuList[index].SetActive(true);
     }
 
     public void VisibleButton()
@@ -91,7 +91,7 @@ public class WOMenu : MonoBehaviour
         _visible = !_visible;
         if (_visible)
         {
-            WOList[_index].SetActive(true);
+            WOList[index].SetActive(true);
         }
         else
         {

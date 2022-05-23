@@ -9,8 +9,6 @@ TagManager:
   - UR10e
   - Tools
   - WorkObjects
-  - ToolsModelMenu
-  - Choque
   layers:
   - Default
   - TransparentFX
