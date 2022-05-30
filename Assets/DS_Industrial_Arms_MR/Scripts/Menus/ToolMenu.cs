@@ -7,13 +7,18 @@ public class ToolMenu : MonoBehaviour
     [SerializeField] GameObject VisibleText;
     [SerializeField] GameObject HiddenText;
     [SerializeField] GameObject toolsModelMenu;
+    [SerializeField] GameObject VacuumOFF;
+    [SerializeField] GameObject VacuumON;
 
     GameObject tools;
     [HideInInspector] public List<GameObject> ToolsList = new List<GameObject>();
     List<GameObject> ToolsModelMenuList = new List<GameObject>();
-    private int _index = 0;
+    [HideInInspector] public int index = 0;
     private bool _visible = false;
 
+    [HideInInspector] public bool VacuumSelected;
+    GameObject robotMenuToggle;
+    RobotMenu robotMenu;
     
     [SerializeField] Vector3 _rotation;
     [SerializeField] float _speed;
@@ -23,6 +28,8 @@ public class ToolMenu : MonoBehaviour
     private void Awake()
     {
         tools = GameObject.FindGameObjectWithTag("Tools");
+        robotMenuToggle = GameObject.Find("Robot Menu Toggle");
+        robotMenu = robotMenuToggle.GetComponent<RobotMenu>();
     }
 
     // Start is called before the first frame update
@@ -35,6 +42,7 @@ public class ToolMenu : MonoBehaviour
             ToolsModelMenuList.Add(toolsModelMenu.transform.GetChild(i).gameObject);
             ToolsModelMenuList[i].SetActive(false);
         }
+        VacuumSelected = false;
         VisibleText.SetActive(false);
         HiddenText.SetActive(true);
         ToolsModelMenuList[0].SetActive(true);
@@ -60,10 +68,10 @@ public class ToolMenu : MonoBehaviour
 
     public void NextButton()
     {
-        _index++;
-        if (_index > ToolsList.Count-1)
+        index++;
+        if (index > ToolsList.Count-1)
         {
-            _index = 0;
+            index = 0;
         }
         if (_visible)
         {
@@ -74,10 +82,10 @@ public class ToolMenu : MonoBehaviour
 
     public void PreviousButton()
     {
-        _index--;
-        if (_index < 0)
+        index--;
+        if (index < 0)
         {
-            _index = ToolsList.Count-1;
+            index = ToolsList.Count-1;
         }
         if (_visible)
         {
@@ -92,7 +100,19 @@ public class ToolMenu : MonoBehaviour
         {
             Tool.SetActive(false);
         }
-        ToolsList[_index].SetActive(true);
+        ToolsList[index].SetActive(true);
+
+        if (_visible && ToolsList[index].name == "Vacuum")
+        {
+            VacuumSelected = true;
+            robotMenu.VacuumNotActive.SetActive(false);
+        }
+        else
+        {
+            VacuumSelected = false;
+            robotMenu.VaccumButton();
+        }
+        
     }
 
     private void ShowToolModel()
@@ -101,7 +121,7 @@ public class ToolMenu : MonoBehaviour
         {
             ToolsModelMenu.SetActive(false);
         }
-        ToolsModelMenuList[_index].SetActive(true);
+        ToolsModelMenuList[index].SetActive(true);
     }
 
     public void VisibleButton()
@@ -109,7 +129,12 @@ public class ToolMenu : MonoBehaviour
         _visible = !_visible;
         if(_visible)
         {
-            ToolsList[_index].SetActive(true);
+            ToolsList[index].SetActive(true);
+            if (ToolsList[index].name == "Vacuum")
+            {
+                VacuumSelected = true;
+                robotMenu.VacuumNotActive.SetActive(false);
+            }
         }
         else
         {
@@ -117,6 +142,8 @@ public class ToolMenu : MonoBehaviour
             {
                 Tool.SetActive(false);
             }
+            VacuumSelected = false;
+            robotMenu.VaccumButton();
         }
         VisibleText.SetActive(_visible);
         HiddenText.SetActive(!_visible);

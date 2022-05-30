@@ -52,7 +52,7 @@ namespace HiS.XR
 
         public void SetFreedrive(bool _VarjoFreedrive)
         {
-            cloudHandlerHelper.SetPropertyValue("Modbus_UR10e_Internal_Variables_InternalFreedrive", _VarjoFreedrive);
+            cloudHandlerHelper.SetPropertyValue("Modbus_UR10e_Internal_Variables_VarjoFreedrive", _VarjoFreedrive);
         }
 
     }

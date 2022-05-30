@@ -17,7 +17,9 @@ public class RobotMenu : MonoBehaviour
     [SerializeField] GameObject FreedriveImage;
     [SerializeField] GameObject VacuumON;
     [SerializeField] GameObject VacuumOFF;
-    [SerializeField] GameObject VacuumNotActive;
+    public GameObject VacuumNotActive;
+    [SerializeField] GameObject FreedriveOFF;
+    [SerializeField] GameObject FreedriveON;
     [SerializeField] GameObject RobotVisibleText;
     [SerializeField] GameObject RobotHiddenText;
 
@@ -147,6 +149,8 @@ public class RobotMenu : MonoBehaviour
         }
     }
 
+    #region Scan and Lock Buttons
+
     public void ScanButton()
     {    
         varjo_Marker_Manager.enabled = true;
@@ -157,6 +161,10 @@ public class RobotMenu : MonoBehaviour
         Invoke("DelayScanCompleted", 1);
         
         LockButtonUI.SetActive(true);
+    }
+    public void DelayScanCompleted()
+    {
+        AfterFirstScan.SetActive(true);
     }
 
     public void LockButton()    
@@ -178,23 +186,24 @@ public class RobotMenu : MonoBehaviour
         }   
     }
 
+    #endregion
+
     public void VaccumButton()
     {
-        if (toolMenu.ToolsList[1].active)
+        //if (toolMenu.ToolsList[toolMenu.index].active && toolMenu.ToolsList[toolMenu.index].name == "Vacuum")
+        if (toolMenu.VacuumSelected)
         {
             VacuumNotActive.SetActive(false);
             VacuumOn = !VacuumOn;
             if (VacuumOn)
             {
                 woMenu.WOList[woMenu.index].transform.SetParent(EndEffector.transform);
-                //WorkObjects.transform.SetParent(EndEffector.transform);
                 VacuumOFF.SetActive(false);
                 VacuumON.SetActive(true);
             }
             else
             {
                 woMenu.WOList[woMenu.index].transform.SetParent(WorkObjects.transform);
-                //WorkObjects.transform.SetParent(null);
                 VacuumON.SetActive(false);
                 VacuumOFF.SetActive(true);
             }
@@ -202,6 +211,10 @@ public class RobotMenu : MonoBehaviour
         else
         {
             VacuumNotActive.SetActive(true);
+            VacuumOn = false;
+            woMenu.WOList[woMenu.index].transform.SetParent(WorkObjects.transform);
+            VacuumON.SetActive(false);
+            VacuumOFF.SetActive(true);
         }
         
     }
@@ -215,10 +228,8 @@ public class RobotMenu : MonoBehaviour
 
     public void FreedriveButtonFeedback(bool _FreedriveValue)
     {
-        // Change Color of the button.
+        FreedriveOFF.SetActive(!_FreedriveValue);
+        FreedriveON.SetActive(_FreedriveValue);
     }
-   public void DelayScanCompleted()
-    {
-        AfterFirstScan.SetActive(true);
-    }
+   
 }
