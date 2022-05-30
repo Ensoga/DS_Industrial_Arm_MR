@@ -5,7 +5,7 @@ using UnityEngine;
 public class Collision : MonoBehaviour
 {
     private MeshRenderer _meshRenderer;
-    private GameObject _workObjects;
+    GameObject _workObjects;
     private List<GameObject> _WOList = new List<GameObject>();
 
     private void Awake()
@@ -27,15 +27,15 @@ public class Collision : MonoBehaviour
     {
         if (_WOList.Contains(other.GetComponent<Transform>().gameObject))
         {
-            GetComponent<MeshRenderer>().enabled = true;
+            _meshRenderer.enabled = true;
         }
-
     }
+
     private void OnTriggerExit(Collider other)
     {
         if (_WOList.Contains(other.GetComponent<Transform>().gameObject))
         {
-            GetComponent<MeshRenderer>().enabled = false;
+            _meshRenderer.enabled = false;
         }
     }
 }

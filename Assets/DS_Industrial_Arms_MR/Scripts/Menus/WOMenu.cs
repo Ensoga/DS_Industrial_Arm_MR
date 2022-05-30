@@ -14,9 +14,18 @@ public class WOMenu : MonoBehaviour
     [HideInInspector] public int index = 0;
     private bool _visible = false;
 
+    GameObject robotMenuToggle;
+    RobotMenu robotMenu;
+    GameObject gridWallsParent;
+    List<GameObject> gridWalls = new List<GameObject>();
+    List<MeshRenderer> gridWallsMeshRenderer = new List<MeshRenderer>();
+
     private void Awake()
     {
         workObjects = GameObject.FindGameObjectWithTag("WorkObjects");
+        robotMenuToggle = GameObject.Find("Robot Menu Toggle");
+        robotMenu = robotMenuToggle.GetComponent<RobotMenu>();
+        gridWallsParent = robotMenu.gridWallsParent;
     }
 
     // Start is called before the first frame update
@@ -29,6 +38,12 @@ public class WOMenu : MonoBehaviour
             WOModelMenuList.Add(WOModelMenu.transform.GetChild(i).gameObject);
             WOModelMenuList[i].SetActive(false);
         }
+        for (int i = 0; i < gridWallsParent.transform.childCount; i++)
+        {
+            gridWalls.Add(gridWallsParent.transform.GetChild(i).gameObject);
+            gridWallsMeshRenderer.Add(gridWalls[i].GetComponent<MeshRenderer>());
+        }
+
         VisibleText.SetActive(false);
         HiddenText.SetActive(true);
         WOModelMenuList[0].SetActive(true);
@@ -70,10 +85,11 @@ public class WOMenu : MonoBehaviour
 
     private void SelectWO()
     {
-        foreach (GameObject Tool in WOList)
+        foreach (GameObject WO in WOList)
         {
-            Tool.SetActive(false);
+            WO.SetActive(false);
         }
+        ResetGrid();
         WOList[index].SetActive(true);
     }
 
@@ -95,12 +111,25 @@ public class WOMenu : MonoBehaviour
         }
         else
         {
-            foreach (GameObject Tool in WOList)
+            foreach (GameObject WO in WOList)
             {
-                Tool.SetActive(false);
+                WO.SetActive(false);
+            }
+
+            if (robotMenu.GridActive)
+            {
+                ResetGrid();
             }
         }
         VisibleText.SetActive(_visible);
         HiddenText.SetActive(!_visible);
+    }
+
+    private void ResetGrid()
+    {
+        foreach(MeshRenderer meshRenderer in gridWallsMeshRenderer)
+        {
+            meshRenderer.enabled = false;
+        }
     }
 }

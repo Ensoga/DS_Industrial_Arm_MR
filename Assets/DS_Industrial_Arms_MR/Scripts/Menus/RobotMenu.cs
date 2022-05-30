@@ -59,8 +59,8 @@ public class RobotMenu : MonoBehaviour
     private bool _VarjoFreedrive = false;
     private bool _InternalFreedrive;
 
-    GameObject gridWalls;
-    private bool GridActive = true;
+    [HideInInspector] public GameObject gridWallsParent;
+    [HideInInspector] public bool GridActive = true;
 
     #endregion
 
@@ -88,7 +88,7 @@ public class RobotMenu : MonoBehaviour
         TOMenuToggleGO = GameObject.Find("Tool Menu Toggle");
         toolMenu = TOMenuToggleGO.GetComponent<ToolMenu>();
 
-        gridWalls = GameObject.Find("Grid Walls");
+        gridWallsParent = GameObject.Find("Grid Walls");
     }
 
     // Start is called before the first frame update
@@ -248,12 +248,12 @@ public class RobotMenu : MonoBehaviour
         GridActive = !GridActive;
         if (GridActive)
         {
-            gridWalls.SetActive(true);
+            gridWallsParent.SetActive(true);
             // Add button canvas
         }
         else
         {
-            gridWalls.SetActive(false);
+            gridWallsParent.SetActive(false);
             // Add button canvas
         }
     }
