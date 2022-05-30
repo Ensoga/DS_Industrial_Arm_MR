@@ -59,8 +59,12 @@ public class RobotMenu : MonoBehaviour
     private bool _VarjoFreedrive = false;
     private bool _InternalFreedrive;
 
+    GameObject gridWalls;
+    private bool GridActive = true;
+
     #endregion
 
+    #region Initilize Functions
     private void Awake()
     {
         RobotVisuals = GameObject.FindGameObjectsWithTag("RobotVisual");
@@ -83,6 +87,8 @@ public class RobotMenu : MonoBehaviour
 
         TOMenuToggleGO = GameObject.Find("Tool Menu Toggle");
         toolMenu = TOMenuToggleGO.GetComponent<ToolMenu>();
+
+        gridWalls = GameObject.Find("Grid Walls");
     }
 
     // Start is called before the first frame update
@@ -104,6 +110,8 @@ public class RobotMenu : MonoBehaviour
         VacuumON.SetActive(false);
         VacuumOFF.SetActive(true);
     }
+
+    #endregion
 
     // Update is called once per frame
     void Update()
@@ -158,13 +166,12 @@ public class RobotMenu : MonoBehaviour
         ScanButtonUI.SetActive(false);
         PressToScan.SetActive(false);
         AfterLock.SetActive(false);
-        Invoke("DelayScanCompleted", 1);
-        
-        LockButtonUI.SetActive(true);
+        Invoke("DelayScanCompleted", 0.5F);
     }
     public void DelayScanCompleted()
     {
         AfterFirstScan.SetActive(true);
+        LockButtonUI.SetActive(true);
     }
 
     public void LockButton()    
@@ -219,6 +226,8 @@ public class RobotMenu : MonoBehaviour
         
     }
 
+    #region Freedrive Functions
+
     public void FreedriveButton()
     {
         _VarjoFreedrive = !_VarjoFreedrive;
@@ -231,5 +240,22 @@ public class RobotMenu : MonoBehaviour
         FreedriveOFF.SetActive(!_FreedriveValue);
         FreedriveON.SetActive(_FreedriveValue);
     }
-   
+
+    #endregion
+
+    public void GridButton()
+    {
+        GridActive = !GridActive;
+        if (GridActive)
+        {
+            gridWalls.SetActive(true);
+            // Add button canvas
+        }
+        else
+        {
+            gridWalls.SetActive(false);
+            // Add button canvas
+        }
+    }
+
 }

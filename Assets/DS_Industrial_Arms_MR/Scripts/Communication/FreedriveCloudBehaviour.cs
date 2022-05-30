@@ -9,7 +9,7 @@ namespace HiS.XR
     public class FreedriveCloudBehaviour : MonoBehaviour
     {
         CloudHandlerHelper cloudHandlerHelper;
-        GameObject UR10e;
+        GameObject DMRobot;
         RobotCloudBehaviour robotCloudBehaviour;
 
         GameObject RobotMenuToggle;
@@ -21,8 +21,8 @@ namespace HiS.XR
         private void Awake()
         {
             cloudHandlerHelper = GetComponent<CloudHandlerHelper>();
-            UR10e = GameObject.FindGameObjectWithTag("UR10e");
-            robotCloudBehaviour = UR10e.GetComponent<RobotCloudBehaviour>();
+            DMRobot = GameObject.Find("DM of Robot");
+            robotCloudBehaviour = DMRobot.GetComponent<RobotCloudBehaviour>();
 
             RobotMenuToggle = GameObject.Find("Robot Menu Toggle");
             robotMenu = RobotMenuToggle.GetComponent<RobotMenu>();

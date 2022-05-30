@@ -637,7 +637,7 @@ MonoBehaviour:
   quaternion: {x: 0.49999997, y: 0.49999997, z: 0.49999997, w: 0.49999997}
   trackedObjects:
   - id: 300
-    gameObject: {fileID: 1159559626}
+    gameObject: {fileID: 1308379426}
     dynamicTracking: 0
 --- !u!114 &52984550
 MonoBehaviour:
@@ -10458,7 +10458,7 @@ GameObject:
   - component: {fileID: 675205113}
   - component: {fileID: 675205112}
   m_Layer: 0
-  m_Name: Plane
+  m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15183,7 +15183,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1308379429}
     m_Modifications:
     - target: {fileID: -8954416421645727437, guid: ce706135621a67640bcab3c704957ee6, type: 3}
       propertyPath: m_UseGravity
@@ -15287,7 +15287,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -3303077921424876939, guid: ce706135621a67640bcab3c704957ee6, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -3303077921424876939, guid: ce706135621a67640bcab3c704957ee6, type: 3}
       propertyPath: m_LocalScale.x
@@ -15759,6 +15759,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84fc5f20b258c0f49b1f4f4086349a51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1159559628 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -3303077921424876939, guid: ce706135621a67640bcab3c704957ee6, type: 3}
+  m_PrefabInstance: {fileID: 1159559625}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1159559629
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15825,44 +15830,6 @@ MonoBehaviour:
   RotationVelocity: 90
   JointVelocity: 360
   SingularityThreshold: 0.01
---- !u!114 &1159559631
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1159559626}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19ee4bcc69701b040b1d12728c2fd851, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RobotIsOnline: 1
---- !u!114 &1159559632
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1159559626}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91a610f009964fc4192bbe0c1a997d3a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_DebugInfo: 0
-  m_DebugLevel: 0
-  m_ThingName: UR10e_EDS
-  m_AppKey: 'ccc37e7e-9899-4b78-9af6-0d88e99ccd7c '
-  m_GetThingProperties:
-  - Modbus_UR10e_Joint_Angles_Base
-  - Modbus_UR10e_Joint_Angles_Shoulder
-  - Modbus_UR10e_Joint_Angles_Elbow
-  - Modbus_UR10e_Joint_Angles_Wrist1
-  - Modbus_UR10e_Joint_Angles_Wrist2
-  - Modbus_UR10e_Joint_Angles_Wrist3
-  m_ThinworxBaseType: 1
-  m_GetFrequency: 10
 --- !u!1 &1174113142
 GameObject:
   m_ObjectHideFlags: 0
@@ -17050,6 +17017,78 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1306419404}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1308379426
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1308379429}
+  - component: {fileID: 1308379431}
+  - component: {fileID: 1308379430}
+  m_Layer: 0
+  m_Name: DM of Robot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1308379429
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1308379426}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1159559628}
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1308379430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1308379426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19ee4bcc69701b040b1d12728c2fd851, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RobotIsOnline: 1
+--- !u!114 &1308379431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1308379426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91a610f009964fc4192bbe0c1a997d3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_DebugInfo: 0
+  m_DebugLevel: 0
+  m_ThingName: UR10e_EDS
+  m_AppKey: 'ccc37e7e-9899-4b78-9af6-0d88e99ccd7c '
+  m_GetThingProperties:
+  - Modbus_UR10e_Joint_Angles_Base
+  - Modbus_UR10e_Joint_Angles_Shoulder
+  - Modbus_UR10e_Joint_Angles_Elbow
+  - Modbus_UR10e_Joint_Angles_Wrist1
+  - Modbus_UR10e_Joint_Angles_Wrist2
+  - Modbus_UR10e_Joint_Angles_Wrist3
+  m_ThinworxBaseType: 1
+  m_GetFrequency: 10
 --- !u!1 &1316179429
 GameObject:
   m_ObjectHideFlags: 0
@@ -17501,7 +17540,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1343980139}
   m_Layer: 0
-  m_Name: Walls
+  m_Name: Grid Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -6,7 +6,6 @@ using HiS.XR.Utils;
 namespace HiS.XR
 {
     [RequireComponent(typeof(CloudHandlerHelper))]
-    [RequireComponent(typeof(UrdfRobot))]
 
     public class RobotCloudBehaviour : MonoBehaviour
     {
@@ -18,6 +17,7 @@ namespace HiS.XR
         private Dictionary<string, double> _THXanswer = new Dictionary<string, double>();
 
         CloudHandlerHelper cloudHandlerHelper;
+        GameObject DMRobot;
         UrdfRobot urdfRobot;
 
         #endregion
@@ -25,7 +25,8 @@ namespace HiS.XR
         private void Awake()
         {
             cloudHandlerHelper = GetComponent<CloudHandlerHelper>();
-            urdfRobot = GetComponent<UrdfRobot>();
+            DMRobot = GameObject.FindGameObjectWithTag("UR10e");
+            urdfRobot = DMRobot.GetComponent<UrdfRobot>();
             _propertyNames.Clear(); // Just in case
         }
 
