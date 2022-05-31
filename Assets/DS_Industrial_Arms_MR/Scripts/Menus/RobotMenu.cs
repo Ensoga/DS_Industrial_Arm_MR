@@ -73,7 +73,7 @@ public class RobotMenu : MonoBehaviour
             meshRenderers.Add(RobotVisual.GetComponent<MeshRenderer>());
         }
 
-        UR10e = GameObject.FindGameObjectWithTag("UR10e");
+        UR10e = GameObject.FindGameObjectWithTag("RobotInactive");
         MR_camera = GameObject.Find("XRRig");
         varjo_Marker_Manager = MR_camera.GetComponent<Varjo_Marker_Manager>();
 
@@ -94,8 +94,8 @@ public class RobotMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
-        varjo_Marker_Manager.enabled = false;
+        //varjo_Marker_Manager.enabled = false;
+        varjo_Marker_Manager.RobotMarkerEnabled = false;
         LockButtonUI.SetActive(false);
         RobotImage.SetActive(false);
         FreedriveImage.SetActive(false);
@@ -160,8 +160,9 @@ public class RobotMenu : MonoBehaviour
     #region Scan and Lock Buttons
 
     public void ScanButton()
-    {    
-        varjo_Marker_Manager.enabled = true;
+    {
+        //varjo_Marker_Manager.enabled = true;
+        varjo_Marker_Manager.RobotMarkerEnabled = true;
         UR10e.SetActive(true);
         ScanButtonUI.SetActive(false);
         PressToScan.SetActive(false);
@@ -178,7 +179,8 @@ public class RobotMenu : MonoBehaviour
     {
         if(AfterFirstScan)
         {
-            varjo_Marker_Manager.enabled = false;
+            //varjo_Marker_Manager.enabled = false;
+            varjo_Marker_Manager.RobotMarkerEnabled = false;
             AfterFirstScan.SetActive(false);
             LockButtonUI.SetActive(false);
             ScanButtonUI.SetActive(true);
@@ -227,12 +229,12 @@ public class RobotMenu : MonoBehaviour
     }
 
     #region Freedrive Functions
-
+    
     public void FreedriveButton()
-    {
+    {/*
         _VarjoFreedrive = !_VarjoFreedrive;
         freedriveCloudBehaviour.SetFreedrive(_VarjoFreedrive);
-        
+        */
     }
 
     public void FreedriveButtonFeedback(bool _FreedriveValue)

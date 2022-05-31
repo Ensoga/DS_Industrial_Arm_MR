@@ -9,6 +9,8 @@ TagManager:
   - UR10e
   - Tools
   - WorkObjects
+  - ToolsModelMenu
+  - RobotInactive
   layers:
   - Default
   - TransparentFX

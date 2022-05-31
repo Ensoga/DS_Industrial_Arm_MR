@@ -54,7 +54,7 @@ namespace HiS.XR
             }
         }
 
-            void InitializeJoints()
+        void InitializeJoints()
         {
             int index = 0;
             foreach (string property in _propertyNames)

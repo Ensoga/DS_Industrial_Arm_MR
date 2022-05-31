@@ -5,7 +5,7 @@ using UnityEngine.XR.WSA;
 using Varjo.XR;
 using System;
 
-public class Varjo_Marker_Manager : MonoBehaviour
+public class AGV_Varjo_Marker_Manager : MonoBehaviour
 {
     // Serializable struct to make it easy to add tracked objects in the Inspector. 
     [Serializable]
@@ -16,19 +16,11 @@ public class Varjo_Marker_Manager : MonoBehaviour
         public bool dynamicTracking;
     }
 
-    [HideInInspector] public bool RobotMarkerEnabled;
-
-    // Robot's Offsets
-    public float RobotOffSet_x = -0.79F;
-    public float RobotOffSet_y = -0.4395F;
-    public float RobotOffSet_z = -0.258F;
-    public Quaternion quaternion = Quaternion.Euler(0,90,90);
-
     // AGV's Offsets
     public float AGVOffSet_x = 0.0F;
     public float AGVOffSet_y = 0.0F;
     public float AGVOffSet_z = 0.0F;
-
+    public Quaternion quaternion = Quaternion.Euler(0, 0, 0);
 
 
 
@@ -56,7 +48,7 @@ public class Varjo_Marker_Manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -77,20 +69,8 @@ public class Varjo_Marker_Manager : MonoBehaviour
                     {
                         // This simple marker manager controls only visibility and pose of the GameObjects.
                         trackedObjects[i].gameObject.SetActive(true);
-
-                        if (trackedObjects[i].id == 200)
-                        {
-                            trackedObjects[i].gameObject.transform.localPosition = new Vector3(marker.pose.position.x - AGVOffSet_x, marker.pose.position.y - AGVOffSet_y, marker.pose.position.z - AGVOffSet_z);
-                        }
-
-                        if (trackedObjects[i].id == 300)
-                        {
-                            if (RobotMarkerEnabled)
-                            {
-                                OverlayRobotDM(marker);
-                            }
-                            
-                        }
+                        trackedObjects[i].gameObject.transform.localPosition = new Vector3(marker.pose.position.x - AGVOffSet_x, marker.pose.position.y - AGVOffSet_y, marker.pose.position.z - AGVOffSet_z);
+                        trackedObjects[i].gameObject.transform.localRotation = marker.pose.rotation * quaternion;
 
                         // Set the marker tracking mode
                         if ((marker.flags == VarjoMarkerFlags.DoPrediction) != trackedObjects[i].dynamicTracking)
@@ -106,7 +86,7 @@ public class Varjo_Marker_Manager : MonoBehaviour
                         }
                     }
                 }
-                
+
             }
 
             // Get a list of IDs of removed markers.
@@ -126,10 +106,5 @@ public class Varjo_Marker_Manager : MonoBehaviour
         }
     }
 
-    public void OverlayRobotDM(VarjoMarker marker)
-    {
-        trackedObjects[0].gameObject.transform.localPosition = new Vector3(marker.pose.position.x - RobotOffSet_x, marker.pose.position.y - RobotOffSet_y, marker.pose.position.z - RobotOffSet_z);
-        trackedObjects[0].gameObject.transform.localRotation = marker.pose.rotation * quaternion;
-    }
 
 }
