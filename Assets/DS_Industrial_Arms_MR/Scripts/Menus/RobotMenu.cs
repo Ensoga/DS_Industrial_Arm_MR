@@ -56,7 +56,7 @@ public class RobotMenu : MonoBehaviour
     private bool VacuumOn = false;
 
     FreedriveCloudBehaviour freedriveCloudBehaviour;
-    private bool _VarjoFreedrive = false;
+    //private bool _VarjoFreedrive = false;
     private bool _InternalFreedrive;
 
     [HideInInspector] public GameObject gridWallsParent;
