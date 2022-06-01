@@ -203,42 +203,65 @@ public class RobotMenu : MonoBehaviour
 
     #endregion
 
-    public void VaccumButton()
+    #region Vacuum Functions
+
+    public void VacuumButton()
     {
-        //if (toolMenu.ToolsList[toolMenu.index].active && toolMenu.ToolsList[toolMenu.index].name == "Vacuum")
         if (toolMenu.VacuumSelected)
         {
             VacuumNotActive.SetActive(false);
             VacuumOn = !VacuumOn;
             if (VacuumOn)
             {
-                woMenu.WOList[woMenu.index].GetComponent<Rigidbody>().useGravity = false;
+                ManageVacuum();
                 woMenu.WOList[woMenu.index].transform.SetParent(EndEffector.transform);
-                VacuumOFF.SetActive(false);
-                VacuumON.SetActive(true);
+                
+                woMenu.WOList[woMenu.index].GetComponent<Rigidbody>().useGravity = false;
+                woMenu.WOList[woMenu.index].GetComponent<BoxCollider>().isTrigger = true;
+                woMenu.WOList[woMenu.index].transform.SetParent(EndEffector.transform);
+                //VacuumOFF.SetActive(false);
+                //VacuumON.SetActive(true);
             }
             else
             {
-                woMenu.WOList[woMenu.index].GetComponent<Rigidbody>().useGravity = true;
+                ManageVacuum();
                 woMenu.WOList[woMenu.index].transform.SetParent(WorkObjects.transform);
-                VacuumON.SetActive(false);
-                VacuumOFF.SetActive(true);
+                
+                woMenu.WOList[woMenu.index].GetComponent<Rigidbody>().useGravity = true;
+                woMenu.WOList[woMenu.index].GetComponent<BoxCollider>().isTrigger = false;
+                woMenu.WOList[woMenu.index].transform.SetParent(WorkObjects.transform);
+                //VacuumON.SetActive(false);
+                //VacuumOFF.SetActive(true);
             }
         }
         else
         {
             VacuumNotActive.SetActive(true);
             VacuumOn = false;
-            woMenu.WOList[woMenu.index].GetComponent<Rigidbody>().useGravity = true;
+            ManageVacuum();
             woMenu.WOList[woMenu.index].transform.SetParent(WorkObjects.transform);
-            VacuumON.SetActive(false);
-            VacuumOFF.SetActive(true);
+            
+            woMenu.WOList[woMenu.index].GetComponent<Rigidbody>().useGravity = true;
+            woMenu.WOList[woMenu.index].GetComponent<BoxCollider>().isTrigger = false;
+            
+            //VacuumON.SetActive(false);
+            //VacuumOFF.SetActive(true);
         }
         
     }
 
+    private void ManageVacuum()
+    {
+        //woMenu.WOList[woMenu.index].GetComponent<Rigidbody>().useGravity = !VacuumOn;
+        woMenu.WOList[woMenu.index].GetComponent<BoxCollider>().isTrigger = VacuumOn;
+        //VacuumON.SetActive(VacuumOn);
+        VacuumOFF.SetActive(!VacuumOn);
+    }
+
+    #endregion
+
     #region Freedrive Functions
-    
+
     public void FreedriveButton()
     {/*
         _VarjoFreedrive = !_VarjoFreedrive;

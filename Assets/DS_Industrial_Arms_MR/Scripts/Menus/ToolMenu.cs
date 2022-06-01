@@ -110,7 +110,7 @@ public class ToolMenu : MonoBehaviour
         else
         {
             VacuumSelected = false;
-            robotMenu.VaccumButton();
+            robotMenu.VacuumButton();
         }
         
     }
@@ -143,7 +143,7 @@ public class ToolMenu : MonoBehaviour
                 Tool.SetActive(false);
             }
             VacuumSelected = false;
-            robotMenu.VaccumButton();
+            robotMenu.VacuumButton();
         }
         VisibleText.SetActive(_visible);
         HiddenText.SetActive(!_visible);

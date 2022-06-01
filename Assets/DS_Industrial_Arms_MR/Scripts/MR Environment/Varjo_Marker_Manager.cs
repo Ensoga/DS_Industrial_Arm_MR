@@ -1,9 +1,7 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.XR.WSA;
 using Varjo.XR;
-using System;
 
 public class Varjo_Marker_Manager : MonoBehaviour
 {
@@ -19,15 +17,17 @@ public class Varjo_Marker_Manager : MonoBehaviour
     [HideInInspector] public bool RobotMarkerEnabled;
 
     // Robot's Offsets
-    public float RobotOffSet_x = -0.79F;
-    public float RobotOffSet_y = -0.4395F;
-    public float RobotOffSet_z = -0.258F;
-    public Quaternion quaternion = Quaternion.Euler(0,90,90);
+    public float RobotOffSetX = -0.79F;
+    public float RobotOffSetY = -0.4395F;
+    public float RobotOffSetZ = -0.258F;
+    public Quaternion RobotQuaternion = Quaternion.Euler(0,90,90);
 
-    // AGV's Offsets
-    /*public float AGVOffSet_x = 0.0F;
-    public float AGVOffSet_y = 0.0F;
-    public float AGVOffSet_z = 0.0F;*/
+    // Work Table's Offsets
+    public float WorkTableOffSetX = 0;
+    public float WorkTableOffSetY = 0;
+    public float WorkTableOffSetZ = 0;
+    public Quaternion WorkTableQuaternion = Quaternion.Euler(0, 0, 0);
+
 
 
 
@@ -128,8 +128,10 @@ public class Varjo_Marker_Manager : MonoBehaviour
 
     public void OverlayRobotDM(VarjoMarker marker)
     {
-        trackedObjects[0].gameObject.transform.localPosition = new Vector3(marker.pose.position.x - RobotOffSet_x, marker.pose.position.y - RobotOffSet_y, marker.pose.position.z - RobotOffSet_z);
-        trackedObjects[0].gameObject.transform.localRotation = marker.pose.rotation * quaternion;
+        trackedObjects[0].gameObject.transform.localPosition = new Vector3(marker.pose.position.x - RobotOffSetX, marker.pose.position.y - RobotOffSetY, marker.pose.position.z - RobotOffSetZ);
+        trackedObjects[0].gameObject.transform.localRotation = marker.pose.rotation * RobotQuaternion;
+        trackedObjects[1].gameObject.transform.localPosition = new Vector3(marker.pose.position.x - WorkTableOffSetX, marker.pose.position.y - WorkTableOffSetY, marker.pose.position.z - WorkTableOffSetZ);
+        trackedObjects[1].gameObject.transform.localRotation = marker.pose.rotation * WorkTableQuaternion;
     }
 
 }

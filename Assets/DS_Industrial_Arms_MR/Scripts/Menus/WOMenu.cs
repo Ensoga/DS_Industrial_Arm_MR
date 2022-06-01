@@ -6,6 +6,9 @@ public class WOMenu : MonoBehaviour
 {
     [SerializeField] GameObject VisibleText;
     [SerializeField] GameObject HiddenText;
+    [SerializeField] GameObject ConveyorOffText;
+    [SerializeField] GameObject ConveyorOnText;
+    [SerializeField] GameObject Conveyor;
     [SerializeField] GameObject WOModelMenu;
 
     GameObject workObjects;
@@ -19,6 +22,8 @@ public class WOMenu : MonoBehaviour
     GameObject gridWallsParent;
     List<GameObject> gridWalls = new List<GameObject>();
     List<MeshRenderer> gridWallsMeshRenderer = new List<MeshRenderer>();
+
+    bool ConveyorOn = false;
 
     private void Awake()
     {
@@ -137,5 +142,13 @@ public class WOMenu : MonoBehaviour
         {
             meshRenderer.enabled = false;
         }
+    }
+
+    public void ConveyorButton()
+    {
+        ConveyorOn = !ConveyorOn;
+        Conveyor.SetActive(ConveyorOn);
+        ConveyorOffText.SetActive(!ConveyorOn);
+        ConveyorOnText.SetActive(ConveyorOn);
     }
 }

@@ -24,7 +24,8 @@ public class AGVCollision : MonoBehaviour
     {
         if (_WOList.Contains(other.GetComponent<Transform>().gameObject))
         {
-            other.transform.SetParent(_workObjects.transform);
+            other.transform.SetParent(this.transform);
+
         }
     }
 
