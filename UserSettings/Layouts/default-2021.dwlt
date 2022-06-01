@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 1117
   m_ShowMode: 4
-  m_Title: Hierarchy
+  m_Title: Game
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -119,7 +119,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 122
+  controlID: 16
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 112
+  controlID: 17
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 113
+  controlID: 18
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -233,7 +233,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: ProjectBrowser
+  m_Name: ConsoleWindow
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -242,14 +242,14 @@ MonoBehaviour:
     y: 658
     width: 1509
     height: 409
-  m_MinSize: {x: 231, y: 271}
-  m_MaxSize: {x: 10001, y: 10021}
-  m_ActualView: {fileID: 15}
+  m_MinSize: {x: 101, y: 121}
+  m_MaxSize: {x: 4001, y: 4021}
+  m_ActualView: {fileID: 16}
   m_Panes:
   - {fileID: 15}
   - {fileID: 16}
-  m_Selected: 0
-  m_LastSelected: 1
+  m_Selected: 1
+  m_LastSelected: 0
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -398,24 +398,24 @@ MonoBehaviour:
     m_SaveData: []
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 769f0100
-      m_LastClickedID: 106358
-      m_ExpandedIDs: 9873ffffe873fffff286ffffb089ffff008affff0e9dffff749effffc49effffcab3ffffa2d6ffff06deffff18e6ffff0afbffffd4530000145400003e5400006a5500003c570000ce5800007e590000aa5a00000e5b0000ac5b0000d45b0000d6480100d64901000e4a0100644d010038530100a25a0100405d0100485e0100246001003a620100d862010020a10100
+      scrollPos: {x: 0, y: 632}
+      m_SelectedIDs: b65c0000
+      m_LastClickedID: 23734
+      m_ExpandedIDs: d4f4ffffecf4ffff18f5ffff44f5ffff80f5ffffb4f5ffffe0f5fffff6f5fffff8f5ffff0afbffffee5300003c5400005254000066540000ce540000a0550000fc55000090570000e65800006659000092590000de590000e25a0000225b0000865b0000305c0000585c0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: DM of Robot
-        m_OriginalName: DM of Robot
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 106784
+        m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 0
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 8}
       m_SearchString: 
@@ -650,9 +650,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -0.61844766, y: 0.096682794, z: -0.1073955}
+    m_Target: {x: 0.28586155, y: 0.20312667, z: 4.460717}
     speed: 2
-    m_Value: {x: -0.61844766, y: 0.096682794, z: -0.1073955}
+    m_Value: {x: 0.28586155, y: 0.20312667, z: 4.460717}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -699,13 +699,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.16527663, y: -0.14965071, z: 0.025443722, w: -0.97457725}
+    m_Target: {x: -0.13728285, y: 0.06446361, z: -0.00894008, w: -0.9884775}
     speed: 2
-    m_Value: {x: -0.16526343, y: -0.14963876, z: 0.02544169, w: -0.9744994}
+    m_Value: {x: -0.1372712, y: 0.06445814, z: -0.008939321, w: -0.98839366}
   m_Size:
-    m_Target: 0.5886915
+    m_Target: 3.8123164
     speed: 2
-    m_Value: 0.5886915
+    m_Value: 3.8123164
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -771,22 +771,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/DS_Industrial_Arms_MR/Scripts/Communication
+    - Assets/DS_Industrial_Arms_MR/Scripts/MR Environment
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 60
   m_LastFolders:
-  - Assets/DS_Industrial_Arms_MR/Scripts/Communication
+  - Assets/DS_Industrial_Arms_MR/Scripts/MR Environment
   m_LastFoldersGridSize: 60
   m_LastProjectPath: C:\Users\enriq\Documents\Unity_Projects\DS_Industrial_Arm_MR
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 79}
-    m_SelectedIDs: d2b50000
-    m_LastClickedID: 46546
-    m_ExpandedIDs: 00000000206c0000226c0000246c0000266c0000286c00002a6c00002c6c00002e6c0000306c0000326c0000346c0000366c0000386c00003a6c00003c6c00003e6c0000406c0000426c0000446c0000466c0000486c00004a6c00004c6c0000666c00006e6c000000ca9a3b
+    m_SelectedIDs: 12500100
+    m_LastClickedID: 86034
+    m_ExpandedIDs: 00000000b06c0000b26c0000b46c0000b66c0000b86c0000ba6c0000bc6c0000be6c0000c06c0000c26c0000c46c0000c66c0000c86c0000ca6c0000cc6c0000ce6c0000d06c0000d26c0000d46c0000d66c0000d86c0000da6c0000dc6c0000848900008a89000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -814,7 +814,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000206c0000226c0000246c0000266c0000286c00002a6c00002c6c00002e6c0000306c0000326c0000346c0000366c0000386c00003a6c00003c6c00003e6c0000406c0000426c0000446c0000466c0000486c00004a6c00004c6c0000
+    m_ExpandedIDs: 00000000b06c0000b26c0000b46c0000b66c0000b86c0000ba6c0000bc6c0000be6c0000c06c0000c26c0000c46c0000c66c0000c86c0000ca6c0000cc6c0000ce6c0000d06c0000d26c0000d46c0000d66c0000d86c0000da6c0000dc6c0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -839,8 +839,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 
-    m_LastClickedInstanceID: 0
+    m_SelectedInstanceIDs: ee530000
+    m_LastClickedInstanceID: 21486
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c623000004550000666000005e6000006e5f00009a5e0000906200005a6000003a600000c4600000f25f000000000000
     m_RenameOverlay:

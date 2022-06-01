@@ -35,9 +35,15 @@ public class WOMenu : MonoBehaviour
         {
             WOList.Add(workObjects.transform.GetChild(i).gameObject);
             WOList[i].SetActive(false);
+        }
+
+        for (int i = 0; i < WOModelMenu.transform.childCount; i++)
+        {
             WOModelMenuList.Add(WOModelMenu.transform.GetChild(i).gameObject);
             WOModelMenuList[i].SetActive(false);
         }
+
+
         for (int i = 0; i < gridWallsParent.transform.childCount; i++)
         {
             gridWalls.Add(gridWallsParent.transform.GetChild(i).gameObject);

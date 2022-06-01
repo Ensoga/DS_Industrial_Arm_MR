@@ -51,6 +51,7 @@ public class RobotMenu : MonoBehaviour
     GameObject WorkObjects;
     GameObject WOMenuToggleGO;
     WOMenu woMenu;
+    List<Rigidbody> WOrigidbodies = new List<Rigidbody>();
 
     GameObject EndEffector;
     private bool VacuumOn = false;
@@ -109,6 +110,11 @@ public class RobotMenu : MonoBehaviour
         VacuumNotActive.SetActive(false);
         VacuumON.SetActive(false);
         VacuumOFF.SetActive(true);
+        /*
+        for (int i = 0; i < woMenu.WOList.Count; i++)
+        {
+            WOrigidbodies.Add(woMenu.WOList[i].GetComponent<Rigidbody>());
+        }*/
     }
 
     #endregion
@@ -161,8 +167,8 @@ public class RobotMenu : MonoBehaviour
 
     public void ScanButton()
     {
-        //varjo_Marker_Manager.enabled = true;
-        varjo_Marker_Manager.RobotMarkerEnabled = true;
+        varjo_Marker_Manager.enabled = true;
+        //varjo_Marker_Manager.RobotMarkerEnabled = true;
         UR10e.SetActive(true);
         ScanButtonUI.SetActive(false);
         PressToScan.SetActive(false);
@@ -179,8 +185,8 @@ public class RobotMenu : MonoBehaviour
     {
         if(AfterFirstScan)
         {
-            //varjo_Marker_Manager.enabled = false;
-            varjo_Marker_Manager.RobotMarkerEnabled = false;
+            varjo_Marker_Manager.enabled = false;
+            //varjo_Marker_Manager.RobotMarkerEnabled = false;
             AfterFirstScan.SetActive(false);
             LockButtonUI.SetActive(false);
             ScanButtonUI.SetActive(true);
@@ -206,12 +212,14 @@ public class RobotMenu : MonoBehaviour
             VacuumOn = !VacuumOn;
             if (VacuumOn)
             {
+                woMenu.WOList[woMenu.index].GetComponent<Rigidbody>().useGravity = false;
                 woMenu.WOList[woMenu.index].transform.SetParent(EndEffector.transform);
                 VacuumOFF.SetActive(false);
                 VacuumON.SetActive(true);
             }
             else
             {
+                woMenu.WOList[woMenu.index].GetComponent<Rigidbody>().useGravity = true;
                 woMenu.WOList[woMenu.index].transform.SetParent(WorkObjects.transform);
                 VacuumON.SetActive(false);
                 VacuumOFF.SetActive(true);
@@ -221,6 +229,7 @@ public class RobotMenu : MonoBehaviour
         {
             VacuumNotActive.SetActive(true);
             VacuumOn = false;
+            woMenu.WOList[woMenu.index].GetComponent<Rigidbody>().useGravity = true;
             woMenu.WOList[woMenu.index].transform.SetParent(WorkObjects.transform);
             VacuumON.SetActive(false);
             VacuumOFF.SetActive(true);

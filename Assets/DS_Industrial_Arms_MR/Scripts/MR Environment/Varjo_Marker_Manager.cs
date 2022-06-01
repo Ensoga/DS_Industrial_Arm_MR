@@ -25,9 +25,9 @@ public class Varjo_Marker_Manager : MonoBehaviour
     public Quaternion quaternion = Quaternion.Euler(0,90,90);
 
     // AGV's Offsets
-    public float AGVOffSet_x = 0.0F;
+    /*public float AGVOffSet_x = 0.0F;
     public float AGVOffSet_y = 0.0F;
-    public float AGVOffSet_z = 0.0F;
+    public float AGVOffSet_z = 0.0F;*/
 
 
 
@@ -78,14 +78,14 @@ public class Varjo_Marker_Manager : MonoBehaviour
                         // This simple marker manager controls only visibility and pose of the GameObjects.
                         trackedObjects[i].gameObject.SetActive(true);
 
-                        if (trackedObjects[i].id == 200)
+                        /*if (trackedObjects[i].id == 200)
                         {
                             trackedObjects[i].gameObject.transform.localPosition = new Vector3(marker.pose.position.x - AGVOffSet_x, marker.pose.position.y - AGVOffSet_y, marker.pose.position.z - AGVOffSet_z);
-                        }
+                        }*/
 
                         if (trackedObjects[i].id == 300)
                         {
-                            if (RobotMarkerEnabled)
+                            //if (RobotMarkerEnabled)
                             {
                                 OverlayRobotDM(marker);
                             }
